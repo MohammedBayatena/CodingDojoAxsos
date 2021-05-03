@@ -1,0 +1,194 @@
+* {
+	margin: 0;
+	padding: 0;
+	/* outline: solid red 1px;
+    */
+}
+.darkblue {
+	color: #2f6ea4;
+}
+.red {
+	color: red;
+}
+.lighblue {
+	color: #46c0df;
+}
+.dark{
+    font-weight: bolder;
+}
+header {
+	width: 1000px;
+}
+    header img {
+        width: 90px;
+        height: 90px;
+        margin-bottom: -20px;
+    }
+    header p {
+        font-family: sans-serif;
+        display: inline-block;
+        font-size: 39px;
+    }
+    header .bluebar {
+        background-image: linear-gradient(#3470a3, #4f81aa, #3470a3);
+        padding: 12px;
+        display: block;
+        color: white;
+        font-size: x-large;
+    }
+section {
+	width: 1000px;
+	display: flex;
+	background-image: linear-gradient(#e4e4e4, white, white);
+}
+    #sidebar {
+        width: 205px;
+        padding: 9px;
+        display: inline-block;
+    }
+        #sidebar p {
+            padding: 5px;
+            font-weight: bolder;
+        }
+        .videobotton {
+            padding: 8px;
+            color: white;
+            text-align: center;
+            font-family: sans-serif;
+            background-image: linear-gradient(#5e94c1, #4581b2, #2769a1);
+            margin-bottom: 5px;
+            box-shadow: 2px 2px grey;
+            border-radius: 5px;
+        }
+        .resourcebotton {
+            padding: 8px;
+            color: white;
+            text-align: center;
+            font-family: sans-serif;
+            background-image: linear-gradient(#eaa94f, #ed8f19, #ef7600);
+            box-shadow: 2px 2px grey;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+    .ad {
+        margin-top: 30px;
+        background-image: url("images/ad_background.png");
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 298px;
+        box-shadow: 2px 2px lightgrey;
+    }
+        .ad img {
+            height: 120px;
+            width: 90px;
+        }
+        .title {
+            font-size: x-large;
+            color: white;
+            text-align: center;
+        }
+        .adbotton {
+            color: white;
+            text-align: center;
+            width: 170px;
+            font-family: sans-serif;
+            font-weight: lighter;
+            background-image: linear-gradient(#6fcedf, #4cc9df, #48c3df);
+            margin-bottom: 5px;
+            padding: 10px;
+            margin-top: 15px;
+            box-shadow: 2px 2px black;
+            border-radius: 5px;
+        }
+#mainbody {
+	vertical-align: top;
+	display: flex;
+	flex-direction: column;
+	width: 1000px;
+	margin-left: 40px;
+}
+    .mainbody .bar {
+        display: flex;
+        align-items: flex-start;
+        height: 72px;
+        border-bottom: gray solid 1px;
+    }
+    .bar #phone {
+        margin-top: 8px;
+        margin-right: 8px;
+        width: 40px;
+        height: 40px;
+    }
+    .mainbody .icon {
+        width: 25px;
+        height: 25px;
+        margin-top: 10px;
+    }
+    .mainbody .home {
+        height: 25px;
+        text-align: center;
+        margin-right: 485px;
+        margin-top: 15px;
+        margin-left: 2px;
+    }
+    .phones {
+        display: flex;
+        flex-direction: column;
+    }
+        .phones .smalltext {
+            font-size: 11px;
+            color: #959595;
+        }
+        .phones .bignumber {
+            font-size: 25px;
+            font-weight: bolder;
+        }
+    .mainbody p {
+        font-size: medium;
+        font-weight: bold;
+        margin-left: 40px;
+    }
+    .mainbody li {
+        font-size: medium;
+        font-weight: bold;
+        width: 700px;
+        text-align: left;
+        padding: 2px;
+    }
+    .mainbody #serverimg {
+        height: 100px;
+        width: 250px;
+        margin-left: 250px;
+    }
+    .mainbody .heading {
+        font-size: x-large;
+        font-weight: bolder;
+    }
+    .mainbody ul {
+        margin-left: 80px;
+    }
+    .mainbody ol {
+        margin-left: 80px;
+    }
+    .endbox {
+        margin-top: 15px;
+        vertical-align: top;
+        display: flex;
+        margin-left: 20px;
+        width: 680px;
+        padding: 20px;
+        border-top: solid #46c0df 5px;
+        border-left: solid #46c0df 5px;
+        border-right: solid #46c0df 5px;
+    }
+        .endbox #htmlpic {
+            width: 115px;
+            height: 115px;
+        }
+        .endbox p {
+            vertical-align: top;
+            display: inline-block;
+            margin-left: 15px;
+        }

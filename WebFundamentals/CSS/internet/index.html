@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<header>
+			<img src="images/globe.png" alt="globeImage" />
+			<p>The Inter<span class="darkblue">net</span></p>
+			<p class="bluebar">The World Wide Web</p>
+		</header>
+
+		<section>
+			<article id="sidebar">
+				<p>So,Whats's an <span class="red">Internet?</span></p>
+				<p>
+					An <span class="darkblue">inter</span>connected
+					<span class="darkblue">Net</span>Work of computers all around the
+					world!
+				</p>
+				<p class="videobotton">WATCH A VIDEO</p>
+				<p class="resourcebotton">MORE RESOURCES</p>
+				<hr />
+				<div class="ad">
+					<p class="title">Reinvent your career in just 14 weeks</p>
+					<img src="images/ninja.png" alt="ninja" />
+					<p class="adbotton">Learn More ⋙</p>
+				</div>
+			</article>
+
+			<article class="mainbody">
+				<div class="bar">
+					<img src="images/home.png" alt="home" class="icon" />
+					<p class="home darkblue">DNS</p>
+					<img src="images/phone.png" alt="phone" id="phone" />
+					<div class="phones">
+						<p class="smalltext">Mon-Fri 9a.m.-5 p.m. (EST)</p>
+						<p class="bignumber lighblue">855.967.3787</p>
+						<p class="smalltext">International +1.617.963.0555</p>
+					</div>
+				</div>
+				<p class="heading darkblue">Clients and Servers</p>
+				<p>
+					Computer connented to the <span class="lighblue">Web</span> are called
+					<span class="dark">Clients</span> and
+					<span class="dark">Servers</span>.
+				</p>
+				<ul>
+					<li>
+						<span class="lighblue">Clients</span> are the typical web user's
+						internet-connected devices ( for example , your computer connected
+						to your WI-FI , or your phone connected to your mobile network) and
+						<span class="lighblue">Web-accessing software</span> available on
+						those devices (usually a web browser like Firefox or Chrome)
+					</li>
+					<li>
+						<span class="lighblue">Servers</span> are computers that store
+						<span class="lighblue">webpages</span>,<span class="lighblue"
+							>sites</span
+						>,<span class="lighblue">apps</span>. when a client device wantts to
+						access a webpage , a copy of the webpage is downloaded from the
+						server onto the client macjine to be displayed in the user's web
+						browser
+					</li>
+				</ul>
+				<img
+					src="images/client_server.jpg"
+					alt="Clientsserver"
+					id="serverimg"
+				/>
+				<p class="heading darkblue">So What Actually Happens?</p>
+				<ol>
+					<li>
+						The browser goes to the <span class="lighblue">DNS server</span> and
+						finds the real address of the
+						<span class="lighblue">server</span> that the website lives on.
+					</li>
+					<li>
+						The browser sends <span class="lighblue">HTTP request</span> message
+						to the server asking it tosend a copy of the website to the client.
+					</li>
+					<li>
+						if the server approves the client's request, the server sends the
+						client a <span class="lighblue">"200 OK" message</span>, which means
+						"Permission granted! Here you go!", and then starts sending the
+						website's files to the browser as a series of small chunks
+					</li>
+					<li>
+						The browser assembles the small chunks into complete website and
+						displays it to you!
+					</li>
+				</ol>
+
+				<div class="endbox">
+					<img src="images/html.png" alt="htmlpic" id="htmlpic" />
+					<div>
+						<p class="heading darkblue">The Big 3- HTML, CSS, JavaScript</p>
+						<p>
+							While the server can process information in amny different
+							languages, the files that they serve to the client are always
+							going to be some combination of HTML, CSS , JavaScript!
+						</p>
+						<p>
+							Learn more about the Big 3 <span class="lighblue">here</span>!
+						</p>
+					</div>
+				</div>
+			</article>
+		</section>
+	</body>
+</html>
