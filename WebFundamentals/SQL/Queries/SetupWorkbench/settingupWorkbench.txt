@@ -1,0 +1,31 @@
+use twitter;
+SET SQL_SAFE_UPDATES = 0;
+
+/*select*/
+
+select * from users;
+
+/*Insert*/
+
+/*
+insert into users (first_name,last_name,handle,birthday,created_at,updated_at)
+values ("Mohammed","Bayatena","MohBay98",DATE("1998-11-21"),curdate(),curdate());
+select * from users;
+*/
+
+/*Delete*/
+
+/*
+delete from users where users.first_name = "Mohammed";
+select * from users;
+*/
+
+/*update*/
+
+/*
+UPDATE users
+SET first_name = "Hatsune", last_name= "Miku"
+WHERE users.first_name = "Mohammed";
+select * from users;
+*/
+

@@ -1,0 +1,140 @@
+
+*{
+    /* outline: solid red 1px; */
+    margin: 2px;
+    padding: 0;
+}
+.element{
+    width: 57px;
+    height: 57px;
+    margin: 2px;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 57px;
+    border: solid black 1px;
+    color: black;
+    font-family: cursive;
+    font-weight: bolder;
+    justify-content: space-around;
+    align-items: center;
+}
+.element .number{
+font-size: 10px;
+}
+.element .mass{
+    font-size: 10px;
+    }
+#hydrogen{
+    margin-right: calc(1*64px);
+    background-color: #689bff;
+}
+#helium{
+    margin-left: calc(5*63.5px);
+    background-color: #fecb00;
+}
+.main{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    width: calc(64*20px);
+    background-color: #eeeeee;
+}
+.container{
+    display: flex;
+    vertical-align: top;
+    flex-flow: row wrap;
+    width: calc(64*19.6px);
+    justify-content: flex-start;
+}
+.container .left{
+width: calc(2*64px);
+flex-basis: calc(2*64px);
+height: calc(7*64px);
+display: flex;
+flex-flow: row wrap;
+margin-right: 15px;
+}
+    .container .left .element{
+        background-color: #689bff;
+    }
+.container .right{
+    width: calc(6*64px);
+    flex-basis: calc(6*64px);
+    height: calc(7*64px);
+    display: flex;
+    justify-content: left;
+    flex-flow: row wrap;
+}
+    .container .right .element{
+        background-color: #fecb00;
+    }
+.container .middle{
+    width: calc(10*64px);
+    flex-basis: calc(10*64px);
+    height: calc(4*64px);
+    display: flex;
+    margin-top:  calc(3*64px);
+    justify-content: left;
+    flex-flow: row wrap; 
+}
+    .container .middle .element{
+        background-color: #fd9a98;
+    }
+.container .bottom{
+    width: calc(14*64px);
+    flex-basis: calc(14*64px);
+    height: calc(2*64px);
+    display: flex;
+    justify-content: left;
+    flex-flow: row wrap; 
+    margin-top: 25px;
+}
+    .container .bottom .element{
+    background-color: #1fca21;
+    } 
+.horzclmn{
+    display: flex;
+    justify-items: flex-start;
+    height: fit-content;
+}
+    .horzclmn p{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 62px;
+        height: 64px;
+        color: black;
+        padding: 2px;
+        margin: 0;
+        font-family: cursive,sans-serif;
+    }
+.vertclclmn{
+    display: flex;
+    justify-items: flex-start;
+    flex-direction: column;
+    margin: 2px;
+
+}
+    .vertclclmn p{
+        margin: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 64px;
+        height: 64px;
+        color: black;
+        font-family: cursive,sans-serif;
+    }
+    .bottomnames{
+        margin: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 64px;
+    }
+
+
+
+
+

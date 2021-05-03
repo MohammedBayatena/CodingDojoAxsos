@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<title>Document</title>
+		<script>
+			$(document).ready(function () {
+				$("img").click(function () {
+					$(this).fadeOut(500);
+				});
+				$("button").click(function () {
+					$("img").fadeIn(200);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="main">
+			<img src="img/image.jpg" alt="image1" />
+			<img src="img/image.jpg" alt="image2" />
+			<img src="img/image.jpg" alt="image3" />
+			<img src="img/image.jpg" alt="image4" />
+			<img src="img/image.jpg" alt="image5" />
+			<img src="img/image.jpg" alt="image6" />
+			<img src="img/image.jpg" alt="image7" />
+			<img src="img/image.jpg" alt="image8" />
+		</div>
+		<hr />
+		<div class="bot">
+			<button>Click to Restore Images</button>
+		</div>
+	</body>
+</html>

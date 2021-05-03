@@ -1,0 +1,42 @@
+-----------------1---------------------
+Code: for(var num = 0; num < 15; num++){
+    console.log(num);
+}
+
+Prediction:
+
+console: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14
+-----------------2---------------------
+
+Code: for(var i = 1; i < 10; i+=2){
+    if(i % 3 == 0){
+        console.log(i);
+    }
+}
+
+Prediction:
+
+(i) --> 1 3 5 7 9 (11)end(outcondition)
+
+console: 3 9
+-----------------3---------------------
+Code: for(var j = 1; j <= 15; j++){
+    if(j % 2 == 0){
+        j+=2;
+    }
+    else if(j % 3 == 0){
+        j++;
+    }
+    console.log(j);
+}
+
+Prediction:
+
+j: 1(updatedby loop to 2) 2(updated by condition to 4 then by loop to 5) 5(updated by loop to 6) 
+6(updated by cond to 8 then by loop to 9)
+9(updated by condition to 10 and by loop to 11) 11(updated by loop to 12)
+12(updated by condition to 14 then by loop to 15) (updated by condition to 16 then updated to 17)
+loop ended when we reached 15
+
+console: 1 4 5 8 10 11 14 16
+

@@ -1,0 +1,11 @@
+
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(2*319px);
+}
+
+img{
+    margin: 2px;
+    border: 1px solid black;
+}

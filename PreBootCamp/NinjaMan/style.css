@@ -1,0 +1,69 @@
+
+/*  (*) means apply css to all elemnts in page */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.row {
+    line-height: 0;
+}
+
+/* the . is for classes without dot is for items like p{} will find items p,
+p.class will do p with class = the thing i provide */
+.wall {
+    background-color: blue;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+}
+
+.sushi {
+    background-color: black;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    background-image: url("img/sushi.png");
+    background-size: contain;
+}
+
+.onigiri {
+    background-color: black;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    background-image: url("img/onigiri.png");
+    background-size: contain;
+}
+
+.blank {
+    background-color: black;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+}
+
+.ghost {
+    background-color: black;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    background-image: url("img/pinky.gif");
+    background-size: contain;
+    position: absolute;
+}
+
+#character {
+    /* # selects id and styles it (needs to be a div)  while . styles all of given name after */
+
+    background-color: black;
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    background-image: url("img/ninja.gif");
+    background-size: contain;
+    position: absolute;
+    left: 40px;
+    top: 40px;
+}

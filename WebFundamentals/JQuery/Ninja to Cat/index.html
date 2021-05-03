@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="style.css" />
+		<title>NinjatoCat</title>
+		<script>
+			$(document).ready(function () {
+				$("img").click(function () {
+					$(this).fadeOut(500);
+					$(this).attr("src", $(this).attr("secondsource"));
+					$(this).fadeIn(500);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="main">
+			<img src="img/ninja0.png" alt="ninja0" secondsource="img/cat0.png" />
+			<img src="img/ninja1.png" alt="ninja1" secondsource="img/cat1.png" />
+			<img src="img/ninja2.png" alt="ninja2" secondsource="img/cat2.png" />
+			<img src="img/ninja3.png" alt="ninja3" secondsource="img/cat3.png" />
+			<img src="img/ninja4.png" alt="ninja4" secondsource="img/cat4.png" />
+		</div>
+	</body>
+</html>

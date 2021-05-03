@@ -1,0 +1,237 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<div class="world">
+		<div id="ocean">
+			<div id="player" style="left: 580px; top: 600px;"></div>
+			<div id="enemies"></div>
+			<div id="missles"></div>
+			<div id="explosions"></div>
+			<h1 id="score">score: 0 </h1>
+			<h1 id="escape">Planes Escaped: 0 </h1>
+			<h1 id="health">Player Health: 5000 </h1>
+		</div>
+		<h1> How to play :
+			<h2> Shoot airplanes and collect scores, five hits and enemy will explode</h2>
+				<h2>Don't let enemies escape out of map.</h2> 
+				<h2>if five enemies escape game will be over!</h2> </h2>
+		</h1>
+
+
+	</div>
+
+	<script>
+		var hit,explosion;
+		hit = new sound("sounds/hit.wav");
+		explosion = new sound("sounds/explosion.wav");
+		var score = 0;
+		var escapedplanes = 0;
+		var enemiesvelocity = 1;
+		var playerhealth=5000;
+		var hitflag=1;
+		var missles = []
+		var player = {
+			x: 450,
+			y: 620
+		}
+
+		var enemies = [
+			{ x: 200, y: 150, hits: 0,type: 1 },
+			{ x: 300, y: 150, hits: 0,type: 1 },
+			{ x: 400, y: 150, hits: 0,type: 1 },
+			{ x: 500, y: 150, hits: 0,type: 1 },
+			{ x: 600, y: 150, hits: 0,type: 1 },
+			{ x: 700, y: 150, hits: 0,type: 1 },
+			{ x: 800, y: 150, hits: 0,type: 1 }
+		]
+
+
+		function drawplayer() { // not really draws more like update atm
+			document.getElementById("player").style.left = player.x + "px";
+			document.getElementById("player").style.top = player.y + "px";
+		}
+
+		function drawenemies() {
+			var htmlbody = "";
+			for (let i = 0; i < enemies.length; i++) {
+				if( enemies[i].type == 1){
+					htmlbody += "<div class='enemy' style='left: " + enemies[i].x + "px; top: " + enemies[i].y + "px;'></div>"
+				}else if ( enemies[i].type == 2){
+					htmlbody += "<div class='enemy2' style='left: " + enemies[i].x + "px; top: " + enemies[i].y + "px;'></div>"
+				}
+			}
+			document.getElementById("enemies").innerHTML = htmlbody;
+		}
+
+		windowsize = {
+			x: document.getElementById("ocean").offsetWidth,
+			y: document.getElementById("ocean").offsetHeight
+		}
+
+		playersize = {
+			width: document.getElementById("player").offsetWidth,
+			height: document.getElementById("player").offsetHeight
+		}
+
+		window.addEventListener('keydown', function (e) {
+
+			if (e.code == "ArrowUp" && player.y > (windowsize.y - (1 / 3) * windowsize.y)) {
+				player.y -= 15;
+			}
+
+			if (e.code == "ArrowDown" && player.y + playersize.height < windowsize.y) {
+				player.y += 15;
+			}
+
+			if (e.code == "ArrowLeft" && player.x > 0) {
+				player.x -= 15;
+			}
+			if (e.code == "ArrowRight" && player.x + playersize.width < windowsize.x) {
+				player.x += 15;
+			}
+			if (e.code == "Space") {
+				missles.push({ x: (player.x + 34), y: (player.y - 8) });
+				drawmissles();
+			}
+			drawplayer();
+		});
+
+		function gameLoop() {
+			drawenemies();
+			moveEnemy();
+			movemissles();
+			drawmissles();
+			docrashes();
+			generateplanes();
+			if (escapedplanes > 4) {
+				alert("GameOver!");
+			}
+			if(playerhealth <=0){
+					htmlbody = "<div class='explosion' style='left: " + player.x + "px; top: " + player.y + "px;'></div>"
+					document.getElementById("explosions").innerHTML = htmlbody;
+					explosion.play();
+					alert("GameOver!");
+			}
+			if (score > 250 && score < 600) {
+				enemiesvelocity = 2;
+			}
+			if (score > 600 && score < 1000) {
+				enemiesvelocity = 5;
+			}
+			if (score > 2000) {
+				enemiesvelocity = 8;
+			}
+			setTimeout(gameLoop, 50)
+		}
+		gameLoop();
+
+		function generateplanes() {
+
+			if (enemies.length <= 0) {
+				enemies.push({ x: random(100, 900), y: 100, hits: 0 , type: random(2,1) });
+				enemies.push({ x: random(100, 900), y: 100, hits: 0, type: 1 });
+			}
+		}
+
+		function moveEnemy() {
+			for (let idx = 0; idx < enemies.length; idx++) {
+				if (enemies.length > 0 && hitflag && player.x - (enemies[idx].x + 70) < 5 && (player.y - enemies[idx].y) < 15) {
+					playerhealth-=500;
+					hitflag=0;
+					document.getElementById("health").innerHTML = "Player Health: "+playerhealth;
+				}
+				enemies[idx].y = enemies[idx].y + enemiesvelocity;
+				if (enemies[idx].y > windowsize.y) {
+					enemies.splice(idx, 1);
+					escapedplanes += 1;
+					document.getElementById("escape").innerHTML = "planes Escaped : " + escapedplanes;
+					idx--;
+					hitflag=1;
+				}
+				if (enemies.length != 0 && idx >= 0 && enemies[idx].hits >= 5) {
+					// console.log("Plane destroyed");
+					htmlbody = "<div class='explosion' style='left: " + enemies[idx].x + "px; top: " + enemies[idx].y + "px;'></div>"
+					document.getElementById("explosions").innerHTML = htmlbody;
+					explosion.play();
+					score += 50;
+					document.getElementById("score").innerHTML = "Score : " + score;
+					setTimeout(clearexpsions, 1000)
+					enemies.splice(idx, 1);
+					idx--;
+					hitflag=1;
+				}
+			}
+		}
+
+		function clearexpsions() {
+			document.getElementById("explosions").innerHTML = "";
+			// explosion.stop();
+		}
+
+		function drawmissles() {
+
+			var htmlbody = "";
+			for (let i = 0; i < missles.length; i++) {
+				htmlbody += "<div class='missle' style='left: " + missles[i].x + "px; top: " + missles[i].y + "px;'></div>"
+			}
+			document.getElementById("missles").innerHTML = htmlbody;
+		}
+
+		function movemissles() {
+
+			for (let idx = 0; idx < missles.length; idx++) {
+				missles[idx].y = missles[idx].y - 10;
+				if (missles[idx].y < 0) {
+					missles.splice(idx, 1);
+					idx--;
+				}
+			}
+
+		}
+
+		function docrashes() {
+
+			for (let i = 0; i < missles.length; i++) {
+				for (let plane = 0; plane < enemies.length; plane++) {
+					if (missles.length > 0 && enemies.length > 0 && i >= 0 && plane >= 0 && (missles[i].x - (enemies[plane].x + 70)) < 5 && (missles[i].y - enemies[plane].y) < 15) {
+						// console.log("plane been hit");
+						missles.splice(i, 1);
+						enemies[plane].hits++;
+						hit.play();
+					}
+				}
+			}
+		}
+
+		function random(max, min) {
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+
+		function sound(src) {
+			this.sound = document.createElement("audio");
+			this.sound.src = src;
+			this.sound.setAttribute("preload", "auto");
+			this.sound.setAttribute("controls", "none");
+			this.sound.style.display = "none";
+			document.body.appendChild(this.sound);
+			this.play = function(){
+				this.sound.play();
+			}
+			this.stop = function(){
+				this.sound.pause();
+			}
+}
+
+	</script>
+</body>
+
+</html>

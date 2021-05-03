@@ -1,0 +1,26 @@
+   42  cd ~
+   43  clear
+   44  ls
+   45  cd Desktop
+   46  clear
+   47  ls
+   48  mkdir test
+   49  cd test/
+   50  touch index.html style.css  commands.txt
+   51  ls
+   52  cp index.html index_2.html
+   53  mkdir ../destination
+   54  mv index_2.html ../destination/
+   55  clear
+   56  ls
+   57  rm style.css
+   58  ls
+   59  cd ..
+   60  ls
+   61  cd destination/
+   62  ls
+   63  cd ..
+   64  ls
+   65  rm -r destination/
+   66  clear
+   67  history

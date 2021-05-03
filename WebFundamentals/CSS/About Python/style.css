@@ -1,0 +1,258 @@
+* {
+	/* outline: solid red 1px; */
+	color: white;
+	margin: 0;
+	padding: 0;
+}
+
+.wrapper {
+	background-color: #245076;
+	/* padding: 20px; */
+	width: 970px;
+}
+
+.header {
+	padding: 20px 20px 0px 20px;
+	margin-bottom: 5px;
+}
+.header img {
+	padding: 5px;
+	height: 100px;
+	width: 320px;
+	margin-right: 40%;
+	display: inline-block;
+}
+
+.header .searchbox {
+	display: inline-block;
+	vertical-align: top;
+}
+.header .sizeselect ul {
+	display: flex;
+	list-style: none;
+	align-items: center;
+	justify-content: center;
+}
+.header .sizeselect ul li {
+	margin: 2px;
+}
+
+.sizeselect ul .yellow{
+	color: yellow;
+}
+
+.header .search {
+	background-color: #444444;
+	display: flex;
+	align-items: center;
+	width: fit-content;
+	padding: 10px;
+	border-radius: 10px;
+}
+.header .search .searcharea {
+	background-color: white;
+	display: flex;
+	width: 150px;
+	height: 30px;
+	align-items: center;
+	justify-content: center;
+	margin: 8px;
+	flex: 4;
+}
+.searcharea p {
+	display: inline-block;
+	color: grey;
+}
+
+.search a {
+	background-color: #245076;
+	padding: 4px;
+	border: grey solid 1px;
+	margin: 1px;
+	height: fit-content;
+	border-radius: 3px;
+	flex: 1;
+	text-align: center;
+}
+
+.navigationbar {
+	background-image: linear-gradient(#3776ad, #437cad, #3776ad);
+	display: block;
+	border-radius: 8px;
+	box-shadow: 2px 2px 2px rgba(7, 7, 7, 0.233);
+	/* margin-bottom: 20px; */
+	margin-left: 50px;
+	margin-right: 50px;
+	padding: 5px;
+}
+.navigationbar ul {
+	display: flex;
+	list-style: none;
+	padding: 10px;
+	justify-content: space-evenly;
+}
+.navigationbar ul li {
+	min-width: 0;
+	width: fit-content;
+}
+.navigationbar ul li a {
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+	font-family: cursive, sans-serif, serif;
+}
+
+.main {
+	display: flex;
+	padding: 10px;
+	/* align-content: space-evenly; */
+	/* justify-content: space-between; */
+	margin-right: 70px;
+	margin-left: 70px;
+}
+
+.navigationlist {
+	/* display: flex; */
+	display: inline-block;
+	min-width: 200px;
+	/* padding: 10px; */
+	height: fit-content;
+}
+.navigationlist ul {
+	display: flex;
+	height: fit-content;
+	flex-direction: column;
+	align-items: center;
+	list-style: "» ";
+}
+.navigationlist ul li {
+	margin: 2px;
+}
+
+.maintext {
+	display: flex;
+	/* flex: 4; */
+	flex-direction: column;
+	align-items: center;
+	vertical-align: top;
+}
+
+.maintext .paragraph {
+	text-align: justify;
+	text-align: center;
+	/* padding: 25px; */
+	font-size: medium;
+	color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+	font-family: sans-serif;
+	margin-block-start: 1em;
+    margin-block-end: 1em;
+}
+
+.maintext .yellowparagraph {
+	color: yellow;
+	font-size: larger;
+	font-family: sans-serif;
+	padding: 5px;
+}
+
+.maintext .white {
+	color: white;
+	font-size: medium;
+	font-family: sans-serif;
+	padding: 5px;
+}
+
+.info {
+	margin-top: 20px;
+	display: flex;
+	/* justify-content: space-around; */
+	background-color: white;
+	justify-content: center;
+	align-content: center;
+}
+
+.info h1, .info p{
+	color: black;
+}
+
+.info .infocard{
+	margin: 5px;
+	min-width: fit-content;
+}
+
+.info .infocard ul{
+    /* display: inline-block; */
+	text-align: center;
+    min-width: 0;
+	margin-top: 25px;
+	margin-bottom: 10px;
+	/* font-size: small; */
+}
+
+.info .infocard h1{
+
+	text-align: center;
+    min-width: 0;
+	margin-top: 5px;
+	padding: 10px;
+	font-weight: bold;
+	font-size: medium;
+	border-top: 4px solid #75a8d3;
+
+}
+
+.info .infocard p{
+	 /* display: inline-block; */
+	text-align: center;
+	width: 250px;
+	height: 90px;
+	padding: 10px;
+	font-size: medium;
+
+
+
+}
+.info .infocard ul li{
+	text-decoration: none;
+	color: black;
+	width: 250px;
+	/* width: fit-content; */
+	text-align: center;
+	text-justify: inter-cluster;
+}
+
+.info .infocard ul li a{
+	text-decoration: none;
+	color: #75a8d3;
+	/* text-align: center; */
+}
+
+
+.footer{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px;
+
+}
+
+
+.footer ul {
+    padding: 10px;
+	display: flex;
+	justify-content: space-evenly;
+	list-style: none;
+    font-family: cursive;
+    font-size: large;
+	min-width: 0;
+}
+
+.footer ul li{
+	margin: 5px;
+	font-size: medium;
+	color: #75a8d3;
+	min-width: 0;
+}
+

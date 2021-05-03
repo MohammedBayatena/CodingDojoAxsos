@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <style>
+        label{
+        display: inline-block;
+        width: 100px;
+    }
+    #textarea{
+    display: grid;
+    line-height: 0;
+    width: max-content;
+    }
+    
+    </style>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+
+
+
+<body>
+    <form action="something.php" method="POST">
+        <div>
+            <h1> My Registration Form</h1>
+        </div>
+        <div>
+            <label for="firstname">FirstName: </label>
+            <input type="text" name="firstname" id="firstname">
+        </div>
+        <div>
+            <label for="lastname">Last Name: </label>
+            <input type="text" name="lastname" id="lastname">
+        </div>
+        <div>
+            <label for="email">Email: </label>
+            <input type="text" name="email" id="email">
+        </div>
+        <div>
+            <label for="password">Password: </label>
+            <input type="password" name="password" id="password">
+        </div>
+        <div>
+            <label for="passwordconf">PW Confirm</label>
+            <input type="password" name="passwordconf" id="passwordconf">
+        </div>
+        <div>
+            <label for="birthday">Birthday: </label>
+            <input type="date" name="birthday" id="birthday">    
+        </div>
+        <div >
+            <label for="male" style="width: max-content;">Male</label>
+            <input type="radio" name="gender" id="male">
+            <label for="female" style="width: max-content;">Female</label>
+            <input type="radio" name="gender" id="female">
+            <label for="other" style="width: max-content;">Other</label>
+            <input type="radio" name="other" id="other">    
+        </div>
+        <div id="textarea">
+            <p>A short description about yourself: </p>
+            <textarea name="textarea" id="about" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+            <label for="favlang" style="width: max-content;">Favorite Language:  </label>
+            <select name="Favlanguage" id="favlang">
+                <option value="Python">JavaScript</option>
+                <option value="Java">Java</option>
+                <option value="JavaScript">Python</option>
+            </select>
+        </div>
+        <div style="margin-top: 5px;">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</body>
+</html>

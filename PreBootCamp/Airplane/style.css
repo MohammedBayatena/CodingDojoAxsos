@@ -1,0 +1,87 @@
+
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+
+		#ocean {
+			background-image: url("img/ocean.jpg");
+			/* background-size: cover;  */
+			/* display: inline-block;  */
+			height: 669px;
+			width: 1200px;
+
+		}
+
+
+		#player {
+			background-image: url("img/player.png");
+			background-size: cover;
+			/* display: inline-block;  */
+			height: 75px;
+			width: 70px;
+			max-width: 70px;
+			max-height: 75px;
+			position: absolute;
+
+		}
+
+		.enemy {
+
+			background-image: url("img/enemy.png");
+			background-size: cover;
+			height: 75px;
+			width: 70px;
+			position: absolute;
+			transform: scaleY(-1);
+		}
+		.enemy2 {
+
+			background-image: url("img/enemy2.png");
+			background-size: cover;
+			height: 75px;
+			width: 70px;
+			position: absolute;
+			transform: scaleY(-1);
+		}
+
+		.missle {
+
+			background-image: url("img/shoot.png");
+			background-size: cover;
+			height: 20px;
+			width: 20px;
+			position: absolute;
+		}
+
+		.explosion {
+
+			position: absolute;
+			height: 50px;
+			width: 50px;
+			background-image: url("img/explode.gif");
+			background-size: cover;
+
+		}
+
+		#score {
+
+			position: absolute;
+			top: 0px;
+			left: 1000px;
+		}
+
+		#escape {
+
+			position: absolute;
+			top: 0px;
+			left: 10px;
+		}
+
+		#health {
+
+			position: absolute;
+			top: 50px;
+			left: 0px;
+		}

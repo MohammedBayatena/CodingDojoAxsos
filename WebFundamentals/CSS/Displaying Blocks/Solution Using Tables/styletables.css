@@ -1,0 +1,41 @@
+#table img {
+	width: 120px;
+	height: 120px;
+	border: solid black 4px;
+	padding: 10px;
+	margin: 4px;
+}
+
+td img.blue {
+	background-color: #82b4ee;
+}
+td img.red {
+	background-color: #f36870;
+}
+#header {
+	text-align: center;
+	height: fit-content;
+}
+#header img {
+	width: 90px;
+	height: 50px;
+	background-color: white;
+	display: inline;
+}
+#title {
+	display: inline;
+	font-weight: bolder;
+}
+#wrapper {
+	background-color: #d5d2ae;
+	padding: 20px;
+	text-align: center;
+	height: fit-content;
+	width: 800px;
+}
+tr {
+	display: inline-block;
+}
+td {
+	display: block;
+}

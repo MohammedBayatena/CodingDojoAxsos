@@ -1,0 +1,15 @@
+.main{
+    display: flex;
+    width: calc(4*313px);
+    flex-wrap: wrap;
+}
+
+img{
+    margin: 5px;
+    border: 1px solid pink;
+}
+
+.bot{
+    display: flex;
+    justify-content: center;
+}

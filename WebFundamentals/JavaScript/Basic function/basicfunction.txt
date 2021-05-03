@@ -1,0 +1,149 @@
+------------------------------------------------1
+function a(){
+    return 35;
+}
+console.log(a())
+------------------------------------------------
+myprediction: 35 , actuall result: 35 (Correct)
+------------------------------------------------2
+function a(){
+    return 4;
+}
+console.log(a()+a());
+------------------------------------------------
+myprediction: 8 , actuall result: 8 (Correct)
+------------------------------------------------3
+function a(b){
+    return b;
+}
+console.log(a(2)+a(4));
+------------------------------------------------
+myprediction: 6 , actuall result: 6 (Correct)
+------------------------------------------------4
+function a(b){
+    console.log(b);
+    return b*3;
+}
+console.log(a(3));
+------------------------------------------------
+myprediction: 3 9 , actuall result: 3 9 (Correct)
+------------------------------------------------5
+function a(b){
+   return b*4;
+   console.log(b);
+}
+console.log(a(10));
+------------------------------------------------
+myprediction: 40 , actuall result: 40 (Correct)
+------------------------------------------------6
+function a(b){
+    if(b<10) {
+        return 2;
+    }
+    else     {
+        return 4;
+    }
+    console.log(b);
+}
+console.log(a(15));
+------------------------------------------------
+myprediction: 4 15 , actuall result: 4 (Wrong)
+------------------------------------------------7
+function a(b,c){
+    return b*c;
+}
+console.log(10,3);
+console.log( a(3,10) );
+------------------------------------------------
+myprediction: 30 30 , actuall result: 10,3 30 (Wrong)
+------------------------------------------------8
+function a(b){
+    for(var i=0; i<10; i++){
+        console.log(i);
+    }
+    return i;
+}
+console.log(3);
+console.log(4);
+------------------------------------------------
+myprediction: 3 4 , actuall result: 3 4 (Correct)
+------------------------------------------------9
+function a(){
+    for(var i=0; i<10; i++){
+        i = i +2;
+        console.log(i);
+    }
+}
+a();
+------------------------------------------------
+myprediction: 2 5 8 11 , actuall result: 2 5 8 11 (Correct)
+------------------------------------------------10
+function a(b,c){
+    for(var i=b; i<c; i++) {
+       console.log(i);
+   }
+   return b*c;
+}
+a(0,10);
+console.log(a(0,10));
+------------------------------------------------
+myprediction: 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0, actuall result: 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 (Correct)
+------------------------------------------------11
+function a(){
+    for(var i=0; i<10; i++){
+       for(var j=0; j<10; j++){
+           console.log(j);
+       }
+       console.log(i);
+    }
+}
+------------------------------------------------------------------------------------------------
+myprediction: function havent been called (nothing will be printed) , actuall result: didnt print a thing (Correct)
+------------------------------------------------12
+
+function a(){
+    for(var i=0; i<10; i++){
+        for(var j=0; j<10; j++){
+            console.log(i,j);
+        }
+        console.log(j,i);
+    }
+}
+---------------------------------------------------------------------------------------------------------------------
+myprediction: function havent been called (nothing will be printed) , actuall result: didnt print a thing (Correct)
+------------------------------------------------13
+var z = 10;
+function a(){
+    var z = 15;
+    console.log(z);
+}
+console.log(z);
+------------------------------------------------
+myprediction: 10 , actuall result: 10 (Correct)
+------------------------------------------------14
+var z = 10;
+function a(){
+    var z = 15;
+    console.log(z);
+}
+a();
+console.log(z)
+------------------------------------------------
+myprediction: 15 10 , actuall result: 15 10 (Correct)
+------------------------------------------------15
+var z = 10;
+function a(){
+    var z = 15;
+    console.log(z);
+    return z;
+}
+z = a();
+console.log(z);
+------------------------------------------------
+myprediction: 15 15 , actuall result: 15 15 (Correct)
+------------------------------------------------
+
+										((My Total Result: 13/15)))
+
+
+

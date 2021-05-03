@@ -1,0 +1,52 @@
+#grid img {
+    width: 120px;
+    height: 120px;
+    border: solid black 4px;
+    padding: 10px;
+    margin: 4px;
+}
+
+#header{
+    text-align: center;
+    height: fit-content;
+}
+#header img {
+    width: 90px;
+    height: 50px;
+    background-color: white;
+    display: inline;
+}
+#title {
+    display: inline;
+    font-weight: bolder;
+}
+
+#wrapper {
+    background-color: #d5d2ae;
+    padding: 20px;
+    text-align: center;
+    height: fit-content;
+    width: 800px;
+}
+
+#clm1 img{
+    background-color: #82b4ee;
+}
+#clm2 img{
+    background-color: #f36870;
+}
+#clm3 img{
+    background-color: #82b4ee;
+}
+#clm4 img{
+    background-color: #f36870;
+}
+#clm5 img{
+    background-color: #82b4ee;
+}
+
+#clm1,#clm2,#clm3,#clm4,#clm5{
+    display: inline-grid;  
+}
+
+

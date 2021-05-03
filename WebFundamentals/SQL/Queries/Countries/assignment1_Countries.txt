@@ -1,0 +1,98 @@
+____________________________________________________________________________________________________________
+						First Query:
+____________________________________________________________________________________________________________
+
+
+SELECT countries.name,languages.language,languages.percentage from world.countries
+join world.languages on languages.country_id =countries.id and languages.language="Slovene"
+order by languages.percentage desc ;
+
+____________________________________________________________________________________________________________
+						Second Query:
+____________________________________________________________________________________________________________
+
+use world;
+select countries.name, COUNT(cities.id) as Number_of_cities
+FROM world.countries
+JOIN cities ON countries.id = cities.country_id
+GROUP BY countries.id
+ORDER BY Number_of_cities desc;
+
+____________________________________________________________________________________________________________
+						Third Query:
+____________________________________________________________________________________________________________
+use world;
+select cities.name,cities.population
+FROM cities
+JOIN countries ON countries.id = cities.country_id 
+WHERE countries.name = 'Mexico' and cities.population > 500000
+ORDER BY cities.population desc;
+
+____________________________________________________________________________________________________________
+						Fourth Query:
+____________________________________________________________________________________________________________
+
+use world;
+select languages.percentage,countries.name,languages.language
+FROM languages
+JOIN countries ON countries.id = languages.country_id
+WHERE languages.percentage > 89.0
+order by languages.percentage desc
+___________________________________________________________________________________________________________
+						Fifth Query:
+____________________________________________________________________________________________________________
+
+use world;
+select countries.name
+FROM countries
+WHERE countries.population > 100000 and surface_area < 501;
+
+___________________________________________________________________________________________________________
+						Sixth Query:
+___________________________________________________________________________________________________________
+use world;
+select countries.name
+FROM countries
+WHERE countries.government_form = "Constitutional Monarchy"   
+and capital > 200
+and life_expectancy > 75;
+___________________________________________________________________________________________________________
+						Seventh Query:
+___________________________________________________________________________________________________________
+
+use world;
+select countries.name,cities.name, cities.district , cities.population
+FROM countries
+join cities on cities.country_id = countries.id 
+WHERE countries.name = "Argentina" 
+and cities.district = "Buenos Aires" 
+and cities.population > 500000   
+
+___________________________________________________________________________________________________________
+						Eighth Query:
+___________________________________________________________________________________________________________
+
+use world;
+select countries.region, COUNT(countries.id) as countries_number
+FROM countries
+group by (countries.region)
+order by  countries_number desc;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,182 @@
+/* * {
+	outline: 1px red solid;
+} */
+.wrapper {
+    border: solid gray 1px;
+	width: 820px ;
+    background-image: radial-gradient(circle, #6f5964, #6f5964, black);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+}
+.header {
+	background-color: #f6f6f6;
+	padding: 10px;
+}
+        .header h1,
+        .header h2 {
+            display: inline-block;
+            margin: 0px;
+        }
+        .header h1 {
+            margin: 0 300px 0 0;
+            font-family: cursive,'Times New Roman', serif;
+        }
+        .header h2{
+            font-family: sans-serif,serif;
+            font-size: large;
+        }
+.cardhead {
+	background-color: white;
+	/* background-image: linear-gradient(whitesmoke, grey); */
+    background-image: linear-gradient(white, #8c8a97, #9e9ea6);
+	padding: 5px;
+    border: solid grey 1px;
+	color: white;
+	font-weight: bolder;
+}
+.about {
+	background-color: #ded0dd;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+}
+        .about p {
+            padding: 10px;
+            margin: 0px;
+        }
+.body {
+	padding: 20px;
+	justify-content: space-between;
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    justify-content: space-around;
+}
+        .body .about h1 {
+            padding: 0px;
+            margin: 0px;
+            font-size: large;
+        }
+        .body .image {
+        flex: 1 1 ;
+        width: fit-content;
+        height: fit-content;
+        vertical-align: top;
+        margin-right: 20px;
+        }
+            .body .image img {
+                padding: 3px;
+                background-color: #c0c0c0;
+                width: 310px;
+                height: 200px;
+            }
+        .body .about {
+            width: 450px;
+            height: 205px;
+            background-color: #ded0dd;
+            display: inline-block;
+            vertical-align: top;
+            margin: 0;
+            min-width: 0;
+        }
+            .body .about p{
+                font-family: sans-serif;
+                font-size: small;
+            }
+.cards {
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+    /* width: 400px; */
+    flex-grow: 1;
+    min-width: 0;
+}
+        .card {
+            flex: 1;
+            background-color: #ded0dd;
+            margin: 10px;
+            min-width: 0;
+        }
+        .cardimage {
+            display: flex;
+            justify-content: center;
+        }
+            .cardimage img {
+                height: 150px;
+                min-width: 0;
+                margin: 0;
+                padding: 0;
+            }
+.paragraph {
+	margin-bottom: 20px;
+    height: 120px;
+    padding: 10px;
+    font-size: small;
+    font-family: sans-serif,serif;
+}
+        .paragraph p {
+            margin: 0px;
+            text-align: justify; /* For Edge */
+            padding: 10px;
+        }
+.logos {
+	display: inline-block;
+	padding: 10px;
+}
+        .logos img {
+            margin: 5px;
+            height: 35px;
+            width: 35px;
+            float: left;
+        }
+
+.link{
+    height: fit-content;
+    text-align: center;
+    margin: 0 0 15px 0;
+    }
+        .link a{
+            background-color: #488067;
+            padding: 4px;
+            border-radius: 7px;
+            text-decoration: none;
+            color: white;
+        }
+    .footer{
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #f6f6f6;
+    }
+            .footer p{
+                flex: 1;
+                padding: 2px;
+                color: black;
+                margin: 0;
+            }
+            .footer img {
+                height: 15px;
+                width: 15px;
+                margin: 4px;
+                
+            }
+            .footer ul{
+                list-style: none;
+                display: flex;
+                margin: 1px;
+                padding: 1px;
+                align-content: center;
+                vertical-align: center;
+            }
+            .footer ul li{
+                display: flex;
+                align-items: center;
+            }
+            .footer ul li a{
+                color: black;
+            }
+

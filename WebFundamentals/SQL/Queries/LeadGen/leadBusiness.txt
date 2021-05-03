@@ -1,0 +1,185 @@
+_____-------_____-------_____-------_____-------
+			Query1			
+-------_____-------_____-------_____-------_____
+
+use lead_gen_business;
+SELECT 
+    DATE_FORMAT(charged_datetime, '%b') AS `Month`,
+    SUM(amount) AS revenue
+FROM
+    billing
+WHERE
+    (MONTH(charged_datetime) = '03')
+        AND YEAR(charged_datetime) = '2012'
+GROUP BY (YEAR(charged_datetime));
+
+_____-------_____-------_____-------_____-------
+			Query2			
+-------_____-------_____-------_____-------_____
+
+
+use lead_gen_business;
+SELECT 
+    client_id AS `Clinet`,
+    SUM(amount) AS revenue
+FROM
+    billing
+WHERE
+     billing.client_id = 2
+GROUP BY (billing.client_id);
+
+_____-------_____-------_____-------_____-------
+			Query3			
+-------_____-------_____-------_____-------_____
+
+use lead_gen_business;
+SELECT 
+    sites.domain_name, client_id
+FROM
+    sites
+WHERE
+    client_id = 10;
+
+_____-------_____-------_____-------_____-------
+			Query4		
+-------_____-------_____-------_____-------_____
+
+use lead_gen_business;
+SELECT 
+    sites.domain_name, client_id,date_format(created_datetime,"%b")as "MONTH",
+   date_format(created_datetime,"%Y") as "YEAR",count(client_id) as "#of_sites_owned"
+FROM
+    sites
+WHERE
+    client_id = 1
+group by (created_datetime);
+
+_____-------_____-------_____-------_____-------
+			Query5			
+-------_____-------_____-------_____-------_____
+
+
+use lead_gen_business;
+SELECT  s.domain_name, COUNT(leads_id) AS '#of_sites_leads'
+FROM leads AS l
+JOIN sites AS s 
+ON l.site_id = s.site_id
+WHERE 
+registered_datetime >= '2011-01-01 00:00:00'
+AND registered_datetime <= '2011-02-15 00:00:00'
+GROUP BY (s.site_id);
+
+_____-------_____-------_____-------_____-------
+			Query6		
+-------_____-------_____-------_____-------_____
+
+
+use lead_gen_business;
+SELECT  CONCAT(c.first_name," ",c.last_name) as name, COUNT(leads_id) AS '#of_sites_leads'
+FROM leads AS l
+JOIN sites AS s 
+ON l.site_id = s.site_id
+left join clients as c
+on c.client_id = s.client_id
+WHERE 
+registered_datetime >= '2011-01-01 00:00:00'
+AND registered_datetime <= '2011-12-31 00:00:00'
+GROUP BY (s.client_id);
+
+
+_____-------_____-------_____-------_____-------
+			Query7		
+-------_____-------_____-------_____-------_____
+
+
+use lead_gen_business;
+SELECT  CONCAT(c.first_name," ",c.last_name) as "client"
+,count(l.leads_id) as "#of_leads",date_format(l.registered_datetime,"%b") as "Month Generated"
+FROM leads AS l
+JOIN sites AS s 
+ON l.site_id = s.site_id
+left join clients as c
+on c.client_id = s.client_id
+WHERE 
+MONTH(l.registered_datetime) >= "01"
+AND MONTH(l.registered_datetime) <= "06"
+and YEAR(l.registered_datetime) = "2011"
+group by (s.site_id)
+
+
+
+_____-------_____-------_____-------_____-------
+			Query8			
+-------_____-------_____-------_____-------_____
+
+
+__________
+	  |
+part1     |
+__________|
+
+use lead_gen_business;
+SELECT  CONCAT(c.first_name," ",c.last_name) as "client"
+,s.domain_name
+,count(l.leads_id) as "#of_leads"
+,date_format(l.registered_datetime,"%b") as "Month Generated"
+FROM leads AS l
+JOIN sites AS s 
+ON l.site_id = s.site_id
+left join clients as c
+on c.client_id = s.client_id
+WHERE 
+MONTH(l.registered_datetime) >= "01"
+AND MONTH(l.registered_datetime) <= "12"
+and YEAR(l.registered_datetime) = "2011"
+group by (s.site_id)
+order by (c.client_id) asc;
+
+__________
+	  |
+part2     |
+__________|
+
+use lead_gen_business;
+SELECT  CONCAT(c.first_name," ",c.last_name) as "client"
+,s.domain_name
+,count(l.leads_id) as "#of_leads"
+,date_format(l.registered_datetime,"%b") as "Month Generated"
+FROM leads AS l
+JOIN sites AS s 
+ON l.site_id = s.site_id
+left join clients as c
+on c.client_id = s.client_id
+group by (s.site_id)
+order by (c.client_id),(s.domain_name) asc;
+
+
+
+_____-------_____-------_____-------_____-------
+			Query9			
+-------_____-------_____-------_____-------_____
+
+
+use lead_gen_business;
+SELECT  CONCAT(first_name," ",last_name) as "client"
+,sum(amount) as total_revenue
+,date_format(charged_datetime,"%b") as Month_Charged
+,YEAR(charged_datetime) as YEAR_Charged
+from billing AS b
+JOIN clients AS c 
+ON b.client_id = c.client_id
+group by(MONTH(charged_datetime)),YEAR(charged_datetime),(b.client_id)
+order by (c.client_id) , YEAR(charged_datetime) asc;
+
+
+_____-------_____-------_____-------_____-------
+			Query10			
+-------_____-------_____-------_____-------_____
+
+use lead_gen_business;
+SELECT  CONCAT(first_name," ",last_name) as "client"
+,GROUP_CONCAT(s.domain_name) as sites
+from sites as s 
+join clients as c
+on c.client_id = s.client_id
+group by(s.client_id)

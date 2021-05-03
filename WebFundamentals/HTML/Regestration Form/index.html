@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+#desc{
+    display: grid;
+    padding-bottom: 5px;
+}
+
+</style>
+
+<body>
+    <form action="process.php" method="POST">
+        <h1>Please Register</h1>
+        <div>
+            <label for="first_name">First Name</label>
+            <input type="text" name="first_name" id="first_name">
+            <label for="last_name">Last Name</label>
+            <input type="text" name="last_name" id="last_name">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email">
+        </div>
+        <div>
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="male" value="male">
+            <label for="female">Female</label>
+            <input type="radio" name="gender" id="female" value="female">
+            <label for="other">Other</label>
+            <input type="radio" name="gender" id="other" value="other">
+        </div>
+        <div>
+            <select name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="decline">Prefer not to say</option>
+            </select>
+        </div>
+        <div>
+            <label for="blue">Blue</label>
+            <input type="checkbox" name="blue" id="blue">
+            <label for="green">Green</label>
+            <input type="checkbox" name="green" id="green">
+            <label for="red">Red</label>
+            <input type="checkbox" name="red" id="red">
+            <label for="black">Black</label>
+            <input type="checkbox" name="black" id="black">
+            <label for="purple">Purple</label>
+            <input type="checkbox" name="purple" id="purple">
+        </div>
+        <div id="desc">
+            <label for="description"> Say something about yourself: </label>
+            <textarea name="description" id="description" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+            <label for="password_confirmation">Confirm Password</label>
+            <input type="password" name="password_confirmation" id="password_confirmation"> 
+            <input type="submit" value="Click Here To Register">
+        </div>
+    </form>
+
+<!-- The Above or the below method works , one needs linking and another is nested -->
+
+    <div>
+        <form>    
+            <p>Please Register</p>
+            <label>
+                Name:<input type="text" name="name">
+            </label>
+            <p>Select your gender:</p>
+            <label>
+                Male<input type="radio" name="gender" value="male"> 
+            </label>
+            <label>
+                Female<input type="radio" name="gender" value="female">
+            </label>
+            <label>
+                Prefer not to say<input type="radio" name="gender" value="decline">
+            </label>
+            <p>For security, enter your password.</p>
+            <label>
+                Password:<input type="password" name="password">
+            </label>
+            <input type="submit" value="Click here to register">
+        </form>
+    </div>
+
+
+</body>
+</html>
+
