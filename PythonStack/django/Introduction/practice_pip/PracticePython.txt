@@ -1,0 +1,32 @@
+$ pip list
+Package    Version
+---------- -------
+pip        21.1.1
+setuptools 49.2.1
+ 
+
+this command lists what packages we have installed on the global python env
+
+$ deactivate
+bash: deactivate: command not found
+No running python venv so it didnt do anything but instead threw an error
+
+$pip3 list
+
+does the same as pip alone cause i only have python3.9 installed the alias for pip3 and pip is same, if python 2 was installed pip will print the
+packages of python2
+
+$source myEnvironments/py3Env/bin/activate
+
+will activate the enviroument called py3Env
+
+$pip install Django==2.2.4 
+
+this will install django version 2.2.4 and its decency in the venv called py3Env because its running.
+Successfully installed Django-2.2.4 pytz-2021.1 sqlparse-0.4.1 
+
+$pip freeze will export a list of all installed pip packages with their version to a file called requirments.txt
+
+$pip uninstall django will uninstall django
+
+$pip show django will display information about the package that is installed on the system
