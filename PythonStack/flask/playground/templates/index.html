@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayGround</title>
+</head>
+
+<style>
+
+    .container{
+    display: flex;
+    padding: 10px;
+    flex-wrap: wrap;
+    justify-content: center
+    }
+
+    .box{
+    min-width : 90px;
+    min-height : 90px;
+    margin: 5px;
+    background-color: {{color}}
+    }
+
+</style>
+
+<body>
+
+<h1 style="text-align: center;">Welcome</h1>
+
+
+    {% if numOfBoxes == 3%}
+        <div class="container" style="justify-content: center;">
+    {% else %}
+        <div class="container" style="justify-content: flex-start;">
+    {% endif %}
+
+    {% for i in range(numOfBoxes): %}
+    <div class="box"></div>
+    {% endfor %}
+
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
