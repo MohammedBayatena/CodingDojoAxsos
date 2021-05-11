@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>ChessBoard</title>
+</head>
+
+<body>
+
+<div class="container">
+    {% for row in range(rows): %}
+    <div class="row">
+        {% for clmn in range(columns): %}
+            {% set color = "bkcolor2"%}
+            {% if (clmn+row) % 2 == 0 %}
+            {% set color = "bkcolor1"%}
+            {% endif %}
+        <div class="cell {{color}}"></div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+</div>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
