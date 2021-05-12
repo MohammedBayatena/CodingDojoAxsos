@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+tr:nth-child(even) td:nth-child(odd){
+background-color: {{color2}};
+}
+tr:nth-child(even) td:nth-child(even){
+background-color: {{color1}};
+}
+
+tr:nth-child(odd) td:nth-child(even){
+background-color: {{color2}};
+}
+tr:nth-child(odd) td:nth-child(odd){
+background-color: {{color1}};
+}
+    </style>
+    <title>ChessBoardUsingRows</title>
+</head>
+
+<body>
+
+<div class="container">
+
+    <table>
+        <tbody>
+        {% for i in range(rows): %}
+            <tr>
+                {% for j in range(columns): %}
+                <td></td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
