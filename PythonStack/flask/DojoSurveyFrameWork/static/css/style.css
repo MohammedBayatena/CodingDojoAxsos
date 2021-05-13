@@ -1,0 +1,16 @@
+*{
+padding:0;
+margin:0;
+font-weight:bold;
+font-family: cursive;
+color: #1E5162;
+}
+
+.container{
+width: 700px;
+border: 1px solid black;
+padding: 15px;
+background-image: url('../../static/img/bk1.png');
+}
+
+
