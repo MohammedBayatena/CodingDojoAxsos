@@ -3,7 +3,6 @@ from jinja2 import Template
 
 app = Flask(__name__)
 
-
 @app.route("/")
 def root():
     return "You are in Root! please go to /lists"
