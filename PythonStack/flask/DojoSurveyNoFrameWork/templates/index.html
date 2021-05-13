@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Dojo Survey</title>
+</head>
+<body>
+<div class="container">
+    <form action="/result" method="post">
+
+        <table class="survey">
+
+            <tbody>
+            <tr>
+                <td><label for="name">Your Name: </label></td>
+                <td><input type="text" name="name" id="name"/></td>
+            </tr>
+
+            <tr>
+                <td><label for="name">Dojo Location: </label></td>
+                <td>
+                    <select id="location" name="location">
+                        <option value="San Jose">San Jose</option>
+                        <option value="New York">New York</option>
+                        <option value="Palestine">Palestine</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="name">Favourite Language: </label></td>
+                <td>
+                    <select id="favlang" name="favlang">
+                        <option value="Python">Python</option>
+                        <option value="C">C</option>
+                        <option value="Java">Java</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="comment">Comment (optional)</label>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+
+        <div class="textbut">
+            <textarea name="comment" id="comment" cols="60" rows="10"> </textarea>
+            <input style="display: block;" name="button" id="submitbutton" type="submit" value="Submit">
+        </div>
+
+    </form>
+</div>
+</body>
+</html>

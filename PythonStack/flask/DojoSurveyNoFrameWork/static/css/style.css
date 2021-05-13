@@ -1,0 +1,47 @@
+*{
+padding:0;
+margin:0;
+}
+
+.container{
+width: fit-content;
+border: 1px solid black;
+padding: 15px;
+margin: 0 auto;
+}
+.survey{
+border-spacing: 10px;
+}
+
+select,input[type=text]{
+width: 150px;
+}
+textarea{
+width: 315px
+}
+
+#comment{
+margin-left: 15px
+}
+.survey tr {
+margin:20px;
+}
+
+.textbut{
+display : flex;
+flex-direction : column;
+align-items : flex-start;
+}
+
+#submitbutton,#goback{
+align-self: flex-end;
+margin-top: 15px;
+background-color: lightblue;
+box-shadow: 2px 2px;
+padding: 2px;
+}
+
+label{
+font-weight: bold;
+font-family: cursive;
+}
