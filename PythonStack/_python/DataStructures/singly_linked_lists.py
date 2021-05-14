@@ -102,16 +102,19 @@ class SLList:
         newnode.next = previous.next
         previous.next = newnode
 
-list1 = SLList()
-for i in range(5):
-    list1.add_to_back(i)
 
-list1.print_values()
-print("-"*30)
-list1.remove_val_first_occurence(5)
-list1.insert_at_index(3,555)
-list1.insert_at_index(4,9999)
-list1.print_values()
+if __name__ == "__main__":
+
+    list1 = SLList()
+    for i in range(5):
+        list1.add_to_back(i)
+
+    list1.print_values()
+    print("-"*30)
+    list1.remove_val_first_occurence(5)
+    list1.insert_at_index(3,555)
+    list1.insert_at_index(4,9999)
+    list1.print_values()
 
 
 
