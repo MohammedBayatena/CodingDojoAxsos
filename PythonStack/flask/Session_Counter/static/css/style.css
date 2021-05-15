@@ -1,0 +1,15 @@
+.btn-pink
+{
+  background-color: #e27775 !important;
+  background-repeat: repeat-x;
+  color: white;
+}
+.btn-pink:hover,
+.btn-pink:focus,
+.btn-pink:active,
+.btn-pink.active,
+.open
+.dropdown-toggle.btn-danger {
+  background-color: hsl(360, 68%, 60%) !important;
+  color: #ffffff;
+ }
