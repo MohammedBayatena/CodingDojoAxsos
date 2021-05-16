@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Date and Time</title>
+    {% load static %}        <!-- added this line -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <p class="box1">The Current time and date:</p>
+    <div class="timedate">
+        <h1>{{date}}</h1>
+        <h1>{{time}}</h1>
+    </div>
+
+</div>
+
+
+</body>
+</html>
