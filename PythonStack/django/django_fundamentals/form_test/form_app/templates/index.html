@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms Test</title>
+    {% load static %}        <!-- added this line -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<h1>Index Page</h1>
+<h3>Create a User</h3>
+<form action='/users' method='post'>
+    {% csrf_token %}
+    Name: <input type='text' name='name' required>
+    Email: <input type='text' name='email' required>
+    <button type='submit'>Create User</button>
+</form>
+</body>
+</html>
