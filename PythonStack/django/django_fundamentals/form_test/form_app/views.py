@@ -20,3 +20,5 @@ def create_user(request):
 def success(request):
     # this is the success route
     return render(request, "success.html")
+
+

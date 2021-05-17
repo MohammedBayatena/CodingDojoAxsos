@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+
+    {% load static %}        <!-- added this line -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'img/bk1.png' %}">
+
+    <title>Dojo Info</title>
+</head>
+<body>
+<div class="container shadow bg-body rounded">
+
+    <form action="/" method="post">
+        {% csrf_token %}
+
+        <div class="form-group row">
+            <label for="staticName" class="col-sm-4 col-form-label">Name</label>
+            <div class="col-sm-5">
+                <input type="text" readonly class="form-control-plaintext" id="staticName" value={{name}}>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="staticLocation" class="col-sm-4 col-form-label">Dojo Location</label>
+            <div class="col-sm-5">
+                <input type="text" readonly class="form-control-plaintext" id="staticLocation" value={{location}}>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="staticfavlang" class="col-sm-4 col-form-label">Favourite Language</label>
+            <div class="col-sm-5">
+                <input type="text" readonly class="form-control-plaintext" id="staticfavlang" value={{favlang}}>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="staticgender" class="col-sm-4 col-form-label">Gender</label>
+            <div class="col-sm-5">
+                <input type="text" readonly class="form-control-plaintext" id="staticgender" value={{gender}}>
+            </div>
+        </div>
+
+        <div class="form-group row ">
+            <p class="col-sm-4 col-form-label">Comments</p>
+            <div class="col-sm-5">
+                <p style="display: inline-block;
+                word-break: break-word;">{{comments}}</p>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <p class="col-sm-4 col-form-label">Heard about us from</p>
+            <div class="col-sm-5">
+                <p style="display: inline-block;
+                word-break: break-word;">{{hearaboutus}}</p>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mb-2">Go Back</button>
+
+    </form>
+</div>
+</body>
+</html>
