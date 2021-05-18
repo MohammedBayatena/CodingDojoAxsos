@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Great Number Game</title>
+
+    {% load static %}        <!-- added this line -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Welcome to the Great Number Game!</h1>
+    <h2>I am thinking of a number between 1 and 100</h2>
+    <h2>Take a guess!</h2>
+
+    <div class="box boxg">
+
+        <h1>{{insidebox}}</h1>
+        <form action='/' method='post' class="vertical">
+            {% csrf_token %}
+            <input type="submit" value="Play again!">
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+
+</div>
+
+
+</body>
+</html>

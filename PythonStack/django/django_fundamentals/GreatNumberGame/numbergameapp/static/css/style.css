@@ -1,0 +1,53 @@
+*{
+padding:0;
+margin:0;
+}
+
+.container{
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 10%
+}
+    .container h1,h2{
+    padding:5px;
+    font-weight: lighter;
+    }
+
+.vertical{
+display: flex;
+flex-direction: column;
+align-items: center;
+
+}
+    .vertical input {
+    padding: 4px;
+    margin: 5px;
+    }
+
+.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+
+    }
+    .box h1{
+    text-align: center;
+    }
+
+.boxg{
+    background-color: green;
+}
+.boxr{
+    background-color: red;
+}
+
+
+
+
+
+
