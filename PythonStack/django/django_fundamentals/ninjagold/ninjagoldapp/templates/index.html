@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div>
+    <div class="gold">
+        <h2>Your Gold: <span class="goldamount">{{request.session.goldamount}}</span></h2>
+    </div>
+
+    <div class="forms">
+
+        <div class="formcard blur">
+            <h2>Farm</h2>
+            <p>(earns 10-20 golds)</p>
+            <form action="process_money" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Find Gold!">
+                <input type="hidden" name="formtype" value="farm">
+            </form>
+        </div>
+
+        <div class="formcard blur">
+            <h2>Cave</h2>
+            <p>(earns 5-10 golds)</p>
+            <form action="process_money" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Find Gold!">
+                <input type="hidden" name="formtype" value="cave">
+            </form>
+        </div>
+
+
+        <div class="formcard blur">
+            <h2>House</h2>
+            <p>(earns 2-5 golds)</p>
+            <form action="process_money" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Find Gold!">
+                <input type="hidden" name="formtype" value="house">
+            </form>
+        </div>
+
+        <div class="formcard blur">
+            <h2>Casino</h2>
+            <p>(earns/takes 0-50 golds)</p>
+            <form action="process_money" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Find Gold!">
+                <input type="hidden" name="formtype" value="casino">
+            </form>
+        </div>
+
+    </div>
+
+    <div class="activities">
+
+        <h2>Activities:</h2>
+
+        <p class="bordered blur">
+
+            {%for item in request.session.activities%}
+            {% if item.type == "farm" %}
+            <span class="green">
+                Earned {{item.rand}} from the farm! ({{item.date}})
+            </span><br>
+
+            {% elif item.type == "cave" %}
+            <span class="green">
+                Earned {{item.rand}} from the cave! ({{item.date}})
+            </span><br>
+            {% elif item.type == "house" %}
+            <span class="green">
+                Earned {{item.rand}} from the house! ({{item.date}})
+            </span><br>
+            {% elif item.type == "casino" %}
+            {%if item.win == 1 %}
+
+            <span class="green">
+                Entered a casino and earned {{item.rand}} golds...Yay!.. ({{item.date}})
+            </span><br>
+
+            {% elif item.win == 0 %}
+
+            <span class="red">
+                Entered a casino and lost {{item.rand}} golds...Ouch!.. ({{item.date}})
+            </span><br>
+
+            {% endif %}
+
+            {% endif %}
+            {% endfor %}
+
+
+        </p>
+
+
+    </div>
+
+</div>
+
+</body>
+</html>
