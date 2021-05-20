@@ -1,0 +1,42 @@
+>>> from usersshell_app.models import *
+
+>>> User.objects.create(first_name="Mohammed" , last_name="Bayatena" , email_address="Mohammed@email.com" , age = 22)
+
+<User: User object (1)>
+
+>>> User.objects.create(first_name="Hatsune" , last_name="Miku" , email_address="Miku@email.com" , age = 16)
+
+<User: User object (2)>
+
+>>> User.objects.create(first_name="Snoop" , last_name="Doog" , email_address="snoop@hotmail.com" , age = 62)
+
+<User: User object (3)>
+
+>>> User.objects.all()
+
+<QuerySet [<User: User object (1)>, <User: User object (2)>, <User: User object (3)>]>
+
+>>> User.objects.first()
+
+<User: User object (1)>
+
+>>> User.objects.last()
+
+<User: User object (3)>
+
+>>> theobject = User.objects.get(id = 3)
+>>> theobject.last_name = "Pancakes"
+>>> theobject.save()
+
+>>> User_to_delete = User.objects.get(id=2)
+>>> User_to_delete.delete()
+(1, {'usersshell_app.User': 1})
+
+>>> User.objects.all().order_by("first_name")
+<QuerySet [<User: User object (1)>, <User: User object (3)>]>
+
+>>> User.objects.all().order_by("-first_name")
+<QuerySet [<User: User object (3)>, <User: User object (1)>]>
+
+
+
