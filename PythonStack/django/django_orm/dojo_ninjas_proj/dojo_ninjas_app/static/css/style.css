@@ -1,0 +1,21 @@
+body {
+    background-image: url(../img/bk2.png);
+    background-size: cover;
+    color: lavender;
+}
+
+h1 {
+    color: lavender
+}
+
+li, ul, h6 {
+    font-size: large;
+}
+
+
+.blur {
+    box-shadow: 0 0 6px .1px lavender;
+    background-color: rgba(238, 238, 238, .15);
+    border-radius: 6px;
+    overflow: hidden;
+}
