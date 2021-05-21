@@ -1,0 +1,85 @@
+In [1]: from dojo_ninjas_app.models import Dojo,Ninja
+
+In [2]: Dojo.objects.create(name="NewYork Dojo",city="NewYork",state="NY")
+Out[2]: <Dojo: Dojo object (1)>
+
+In [3]: Dojo.objects.create(name="Florida Dojo",city="Florida",state="CA")
+Out[3]: <Dojo: Dojo object (2)>
+
+In [4]: Dojo.objects.create(name="Palestine Dojo",city="Abo_shkedim",state="PS")
+Out[4]: <Dojo: Dojo object (3)>
+
+In [5]: Dojo.objects.all()
+Out[5]: <QuerySet [<Dojo: Dojo object (1)>, <Dojo: Dojo object (2)>, <Dojo: Dojo object (3)>]>
+
+In [6]: for dojo in Dojo.objects.all():
+   ...:     dojo.delete()
+
+In [7]: Dojo.objects.all()
+Out[7]: <QuerySet []>
+
+In [8]: Dojo.objects.create(name="Texas Dojo",city="Texas",state="TX")
+Out[8]: <Dojo: Dojo object (4)>
+
+In [9]: Dojo.objects.create(name="Brooklen Dojo",city="NewYork",state="NY")
+Out[9]: <Dojo: Dojo object (5)>
+
+In [10]: Dojo.objects.create(name="San-Fransisco Dojo",city="San-Fransisco",state="CA")
+Out[10]: <Dojo: Dojo object (6)>
+
+In [11]: Dojo.objects.all()
+Out[11]: <QuerySet [<Dojo: Dojo object (4)>, <Dojo: Dojo object (5)>, <Dojo: Dojo object (6)>]>
+
+In [12]: Dojo.objects.all()[0]
+Out[12]: <Dojo: Dojo object (4)>
+
+In [13]: first_dojo= Dojo.objects.first()
+
+In [14]: second_dojo = Dojo.objects.all()[1]
+
+In [15]: Ninja.objects.create(first_name="Eric", last_name="Smith" , dojo_id = first_dojo)
+Out[15]: <Ninja: Ninja object (1)>
+
+In [16]: Ninja.objects.create(first_name="John", last_name="Carpenter" , dojo_id = first_dojo)
+Out[16]: <Ninja: Ninja object (2)>
+
+In [17]: Ninja.objects.create(first_name="David", last_name="Mayor" , dojo_id = first_dojo)
+Out[17]: <Ninja: Ninja object (3)>
+
+In [18]: Ninja.objects.create(first_name="Nicole", last_name="Tesla" , dojo_id = second_dojo)
+Out[18]: <Ninja: Ninja object (4)>
+
+In [19]: Ninja.objects.create(first_name="Albert", last_name="Einstein" , dojo_id = second_dojo)
+Out[19]: <Ninja: Ninja object (5)>
+
+In [20]: Ninja.objects.create(first_name="Issac", last_name="Newton" , dojo_id = second_dojo)
+Out[20]: <Ninja: Ninja object (6)>
+
+In [21]: last_dojo = Dojo.objects.last()
+
+In [22]: Ninja.objects.create(first_name="Bill", last_name="Gates" , dojo_id = last_dojo)
+Out[22]: <Ninja: Ninja object (7)>
+
+In [23]: Ninja.objects.create(first_name="Jeff", last_name="Bezos" , dojo_id = last_dojo)
+Out[23]: <Ninja: Ninja object (8)>
+
+In [24]: Ninja.objects.create(first_name="Mohammed", last_name="Bayatena" , dojo_id = last_dojo)
+Out[24]: <Ninja: Ninja object (9)>
+
+In [25]: first_dojo.ninjas.all()
+Out[25]: <QuerySet [<Ninja: Ninja object (1)>, <Ninja: Ninja object (2)>, <Ninja: Ninja object (3)>]>
+
+In [26]: last_dojo.ninjas.all()
+Out[26]: <QuerySet [<Ninja: Ninja object (7)>, <Ninja: Ninja object (8)>, <Ninja: Ninja object (9)>]>
+
+In [27]: Ninja.objects.last().dojo_id
+Out[27]: <Dojo: Dojo object (6)>
+
+--------After Table Alter
+
+In [1]: from dojo_ninjas_app.models import Dojo,Ninja
+
+In [2]: Dojo.objects.create(name="Palestine Dojo",city="Abo-shkedim",state="PS",desc="First CodingDojo in Palestine")
+Out[2]: <Dojo: Dojo object (7)>
+
+In [3]: exit()
