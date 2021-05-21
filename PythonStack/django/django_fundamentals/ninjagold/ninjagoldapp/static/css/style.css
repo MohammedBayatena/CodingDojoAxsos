@@ -50,14 +50,6 @@ color: red !important;}
   background-color: rgba(238,238,238,.90);
   border-radius: 6px;
   overflow:hidden;
-  &:after{
-    content: "";
-    display: block;
-    //replace this image with cropped and low res version
-    background: url(http://lorempixel.com/500/500) center no-repeat;
-    -webkit-filter: blur(5px);
-    opacity:.6;
-  }
 }
 
 .activities{
