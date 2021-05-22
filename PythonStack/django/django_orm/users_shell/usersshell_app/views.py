@@ -14,7 +14,7 @@ def root(request):
         'success' : 0
     }
 
-    return render(request, "index.html", context=context)
+    return render(request, "books.html", context=context)
 
 
 def add(request):

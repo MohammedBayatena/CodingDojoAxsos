@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books and Authors</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/books_style.css' %}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <form action="#" method="post" class="formgrid">
+        <h2 class="cell1">Add a Book</h2>
+        <label for="title" class="label1">Title</label>
+        <input class="input1" type="text" name="title" id="title" required>
+        <label for="desc" class="label2">Description </label>
+        <textarea class="input2"  name="desc" id="desc" required></textarea>
+        <input class="buttonadd" type="submit" value="Add">
+    </form>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>C#</td>
+            <td><a href="/books/1">View</a></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Java</td>
+            <td><a href="/books/2">View</a></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Python</td>
+            <td><a href="/books/3">View</a></td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>

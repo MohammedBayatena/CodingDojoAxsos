@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books and Authors</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/info.css' %}">
+</head>
+
+<body>
+
+<div class=container>
+    <h2>Lau Tzu</h2>
+    <p>ID : 5</p>
+    <div class="tag_text">
+        <p class="tag">Description:</p>
+        <p class="description">description : Lorem ipsum dolor sit amet amet amet amet amet amet amet do
+            Lorem ipsum dolor sit amet amet amet amet amet amet amet doLorem ipsum dolor sit amet amet amet amet amet
+            amet amet amet doLorem ipsum dolor sit amet amet amet amet amet amet amet doLorem ipsum dolor sit amet amet
+            amet amet amet amet do
+        </p>
+    </div>
+
+    <p>Books:</p>
+    <div style="margin-left: 40px">
+        <ul>
+            <li>java</li>
+            <li>Python</li>
+        </ul>
+        <form>
+            <select name="select" required>
+                <option selected value="">-select a book-</option>
+                <option value="1">item1</option>
+                <option value="2">item2</option>
+            </select>
+            <input type="submit" value="Add">
+        </form>
+
+    </div>
+</div>
+
+
+</body>
+</html>

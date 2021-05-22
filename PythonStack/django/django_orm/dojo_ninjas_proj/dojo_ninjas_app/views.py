@@ -12,7 +12,7 @@ def root(request):
     context = {
         'dojos': dojo.getalldojos(dojo)
     }
-    return render(request, "index.html", context)
+    return render(request, "books.html", context)
 
 def newdojo(request):
     dojodict = {

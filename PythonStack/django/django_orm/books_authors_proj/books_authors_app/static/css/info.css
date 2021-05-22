@@ -1,0 +1,20 @@
+* {
+    padding: 2px;
+    margin: 0;
+}
+
+.container {
+    padding: 30px;
+}
+
+.tag_text {
+    display: flex;
+}
+
+.description {
+    width: 400px;
+}
+
+.tag {
+    padding-right: 15px;
+}
