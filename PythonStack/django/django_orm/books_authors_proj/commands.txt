@@ -1,0 +1,112 @@
+#Create Book Class Model
+#Create Author Class Model
+
+In [1]: from books_authors_app.models import Book,Authors
+
+#Create 5 Books
+
+In [2]: Book.objects.create(title="C Sharp" , desc = "This is a Book about C#")
+Out[2]: <Book: Book object (1)>
+
+In [3]: Book.objects.create(title="Java" , desc = "This is a Book about Java")
+Out[3]: <Book: Book object (2)>
+
+In [4]: Book.objects.create(title="Python" , desc = "This is a Book about Python")
+Out[4]: <Book: Book object (3)>
+
+In [5]: Book.objects.create(title="PHP" , desc = "This is a Book about PHP")
+Out[5]: <Book: Book object (4)>
+
+In [6]: Book.objects.create(title="Ruby" , desc = "This is a Book about Ruby")
+Out[6]: <Book: Book object (5)>
+
+#Create 5 Authors
+
+In [7]: Authors.objects.create(first_name="Jane" , last_name="Austen")
+Out[7]: <Authors: Authors object (1)>
+
+In [8]: Authors.objects.create(first_name="Emily" , last_name="Dickinson")
+Out[8]: <Authors: Authors object (2)>
+
+In [9]: Authors.objects.create(first_name="Fyodor" , last_name="Dostoevsky")
+Out[9]: <Authors: Authors object (3)>
+
+In [10]: Authors.objects.create(first_name="William" , last_name="Shakespear")
+Out[10]: <Authors: Authors object (4)>
+
+In [11]: Authors.objects.create(first_name="Lau" , last_name="Tzu")
+Out[11]: <Authors: Authors object (5)>
+
+In [12]: exit()
+
+#added a field called notes in models.py given default "This is a note"
+
+#Change the name of C Sharp book to C#
+In [19]: tempbook = Book.objects.filter(title="C Sharp").first()
+In [20]: tempbook.title="C#"
+In [21]: tempbook.save()
+
+#Change the name of Author 4 to Bill
+In [27]: tempauthor = Authors.objects.get(id=4)
+In [28]: tempauthor.first_name = "Bill"
+In [29]: tempauthor.save()
+
+
+#Assign first Author to first two books
+In [37]: firstauthor = Authors.objects.get(id=1)
+In [38]: tempbook = Book.objects.get(id=1)
+In [41]: tempbook.authors.add(firstauthor)
+In [44]: tempbook = Book.objects.get(id=2)
+In [45]: tempbook.authors.add(firstauthor)
+
+#Assign second Author to first three books
+In [46]: secondauthor = Authors.objects.get(id=2)
+In [47]: bokkstoupdate = Book.objects.filter(id__in=[1,2,3])
+In [48]: bokkstoupdate
+Out[48]: <QuerySet [<Book: Book object (1)>, <Book: Book object (2)>, <Book: Book object (3)>]>
+In [49]: for item in bokkstoupdate:
+    ...:     item.authors.add(secondauthor)
+    ...:
+
+#Assign third Author to first four books
+In [57]: bokkstoupdate = Book.objects.filter(id__in=[1,2,3,4])
+In [58]: thirdauthor= Authors.objects.get(id=3)
+In [59]: for item in bokkstoupdate:
+    ...:     item.authors.add(thirdauthor)
+    ...:
+
+#Assign fourth Author to all books
+In [64]: bokkstoupdate = Book.objects.all()
+In [65]: fourthauthor = Authors.objects.get(id=4)
+In [66]: for item in bokkstoupdate:
+    ...:     item.authors.add(fourthauthor)
+    ...:
+#Authors of book three
+In [69]: Book.objects.get(id=3).authors.all()
+
+#Remove first author of book three
+In [71]: firstbookauthor = Book.objects.get(id=3).authors.first()
+In [72]: firstbookauthor = Book.objects.get(id=3).authors.remove(firstbookauthor)
+
+#Added fifth author to book 2 list of authors
+In [74]: fifthauthor = Authors.objects.get(id=5)
+In [75]: Book.objects.get(id=2).authors.add(fifthauthor)
+
+#All books the third author is part of
+
+In [84]: Book.objects.filter(authors__in=[3])
+Out[84]: <QuerySet [<Book: Book object (1)>, <Book: Book object (2)>, <Book: Book object (3)>, <Book: Book object (4)>]>
+(OR)
+In [89]: Authors.objects.get(id=3).books.all()
+Out[89]: <QuerySet [<Book: Book object (1)>, <Book: Book object (2)>, <Book: Book object (3)>, <Book: Book object (4)>]>
+
+#All Authors of book 5
+In [88]: Book.objects.get(id=5).authors.all()
+Out[88]: <QuerySet [<Authors: Authors object (4)>]>
+
+
+
+
+
+
+
