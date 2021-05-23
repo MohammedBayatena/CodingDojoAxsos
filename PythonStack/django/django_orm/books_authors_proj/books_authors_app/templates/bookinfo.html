@@ -10,38 +10,40 @@
 <body>
 
 <div class=container>
-    <h2>PHP</h2>
-    <p>ID : 4</p>
+    <h2>{{title}}</h2>
+    <p>ID : {{id}}</p>
     <div class="tag_text">
         <p class="tag">Description:</p>
-        <p class="description">description : Lorem ipsum dolor sit amet amet amet amet amet amet amet do
-            Lorem ipsum dolor sit amet amet amet amet amet amet amet doLorem ipsum dolor sit amet amet amet amet amet
-            amet
-            amet doLorem ipsum dolor sit amet amet amet amet amet amet amet do Lorem ipsum dolor sit amet amet amet amet
-            amet amet amet doLorem ipsum dolor sit amet amet amet amet amet amet amet doLorem ipsum dolor sit amet amet
-            amet
-            amet amet amet amet do
-        </p>
+        <p class="description">{{desc}}</p>
     </div>
 
 
     <p>Authors:</p>
     <div style="margin-left: 40px">
         <ul>
-            <li>Fyodor Dostoevsky</li>
-            <li>Bill Shakespear</li>
+
+            {% if authors|length > 0 %}
+            {% for author in authors %}
+            <li>{{author.first_name}} {{author.last_name}}</li>
+            {% endfor %}
+            {% else %}
+            <li>None</li>
+            {% endif %}
+
         </ul>
-        <form>
+        <form action="/books/addauthor" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="bookid" value="{{id}}">
             <select name="select" required>
                 <option selected value="">-select an author-</option>
-                <option value="1">item1</option>
-                <option value="2">item2</option>
+                {% for author in allauthors %}
+                <option value="{{author.id}}">{{author.first_name}} {{author.last_name}}</option>
+                {% endfor %}
             </select>
             <input type="submit" value="Add">
         </form>
     </div>
 </div>
-
 
 </body>
 </html>

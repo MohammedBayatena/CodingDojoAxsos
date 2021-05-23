@@ -10,7 +10,8 @@
 <body>
 <div class="container">
 
-    <form action="#" method="post" class="formgrid">
+    <form action="/books/newbook" method="post" class="formgrid">
+        {% csrf_token %}
         <h2 class="cell1">Add a Book</h2>
         <label for="title" class="label1">Title</label>
         <input class="input1" type="text" name="title" id="title" required>
@@ -25,21 +26,15 @@
             <th>Title</th>
             <th>Action</th>
         </tr>
+
+        {% for book in books%}
         <tr>
-            <td>1</td>
-            <td>C#</td>
-            <td><a href="/books/1">View</a></td>
+            <td>{{book.id}}</td>
+            <td>{{book.title}}</td>
+            <td><a href="/books/{{book.id}}">View</a></td>
         </tr>
-        <tr>
-            <td>2</td>
-            <td>Java</td>
-            <td><a href="/books/2">View</a></td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Python</td>
-            <td><a href="/books/3">View</a></td>
-        </tr>
+        {% endfor %}
+
     </table>
 
 </div>

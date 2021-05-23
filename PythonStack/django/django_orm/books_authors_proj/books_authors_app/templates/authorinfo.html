@@ -10,28 +10,33 @@
 <body>
 
 <div class=container>
-    <h2>Lau Tzu</h2>
-    <p>ID : 5</p>
+    <h2>{{first_name}} {{last_name}}</h2>
+    <p>ID : {{id}}</p>
     <div class="tag_text">
-        <p class="tag">Description:</p>
-        <p class="description">description : Lorem ipsum dolor sit amet amet amet amet amet amet amet do
-            Lorem ipsum dolor sit amet amet amet amet amet amet amet doLorem ipsum dolor sit amet amet amet amet amet
-            amet amet amet doLorem ipsum dolor sit amet amet amet amet amet amet amet doLorem ipsum dolor sit amet amet
-            amet amet amet amet do
+        <p class="tag">Notes:</p>
+        <p class="description">{{notes}}
         </p>
     </div>
 
     <p>Books:</p>
     <div style="margin-left: 40px">
         <ul>
-            <li>java</li>
-            <li>Python</li>
+            {% if books|length > 0 %}
+            {% for book in books %}
+            <li>{{book.title}}</li>
+            {% endfor %}
+            {% else %}
+            <li>None</li>
+            {% endif %}
         </ul>
-        <form>
+        <form action="/authors/addbook" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="authorid" value="{{id}}">
             <select name="select" required>
                 <option selected value="">-select a book-</option>
-                <option value="1">item1</option>
-                <option value="2">item2</option>
+                {% for book in allbooks %}
+                <option value="{{book.id}}">{{book.title}}</option>
+                {% endfor %}
             </select>
             <input type="submit" value="Add">
         </form>

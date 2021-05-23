@@ -11,7 +11,8 @@
 
 <div class="container">
 
-    <form action="#" method="post" class="formgrid">
+    <form action="/authors/newauthor" method="post" class="formgrid">
+        {% csrf_token %}
         <h2 class="cell1">Add an Author</h2>
         <label for="first_name" class="label1">First Name</label>
         <input class="input1" type="text" name="first_name" id="first_name" required>
@@ -32,21 +33,15 @@
             <th>Name</th>
             <th>Action</th>
         </tr>
+
+        {% for author in authors%}
         <tr>
-            <td>1</td>
-            <td>Jane Austen</td>
-            <td><a href="#">View</a></td>
+            <td>{{author.id}}</td>
+            <td>{{author.first_name}} {{author.last_name}}</td>
+            <td><a href="/authors/{{author.id}}">View</a></td>
         </tr>
-        <tr>
-            <td>2</td>
-            <td>Emily Dickinson</td>
-            <td><a href="#">View</a></td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Fyodor Dostoevsky</td>
-            <td><a href="#">View</a></td>
-        </tr>
+        {% endfor %}
+
     </table>
 
 </div>
