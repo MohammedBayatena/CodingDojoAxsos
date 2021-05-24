@@ -7,53 +7,49 @@ from . import models
 # Create your views here.
 
 def root(request):
-    book = models.Book
-    print(book.get_all_books(book))
+    #print(models.get_all_books())
     context = {
-        'books': book.get_all_books(book)
+        'books': models.get_all_books()
     }
 
     return render(request, "books.html", context)
 
 
 def handleAuthors(request):
-    author = models.Authors
-    print(author.get_all_authors(author))
+    #print(models.get_all_authors())
     context = {
-        'authors': author.get_all_authors(author)
+        'authors': models.get_all_authors()
     }
 
     return render(request, "authors.html", context)
 
 
 def newbook(request):
-    print(request.POST)
+    #print(request.POST)
     newbook = {
         'title': request.POST['title'],
         'desc': request.POST['desc']
     }
-    book = models.Book
-    book.newbook(book, newbook['title'], newbook['desc'])
+    models.newbook(newbook['title'], newbook['desc'])
     return redirect('/')
 
 
 def newauthor(request):
-    print(request.POST)
+    #print(request.POST)
     newauthor = {
         'first_name': request.POST['first_name'],
         'last_name': request.POST['last_name'],
         'notes': request.POST['notes']
     }
-    author = models.Authors
-    author.newauthor(author, newauthor['first_name'], newauthor['last_name'], newauthor['notes'])
+    models.newauthor(newauthor['first_name'], newauthor['last_name'], newauthor['notes'])
     return redirect('/authors')
 
 
 def authorinfo(request, id):
     try:
-        author = models.Authors.getbyid(models.Authors, int(id))
-        books = models.Authors.get_allauthors(author)
-        allbooks = models.Book.get_all_books(models.Book)
+        author = models.getbyid_author(int(id))
+        books = models.get_allbooks(author)
+        allbooks = models.getbooks_not_associated(int(id)) #---------->
     except:
         print("Error Reading from database")
     context = {
@@ -70,11 +66,11 @@ def authorinfo(request, id):
 def bookinfo(request, id):
     try:
         # print(models.Book.getbyid(models.Book, int(id)))
-        book = models.Book.getbyid(models.Book, int(id))
-        authors = models.Book.get_allauthors(book)
-        allauthors = models.Authors.get_all_authors(models.Authors)
-    except:
-        print("Error Reading from database")
+        book = models.getbyid_book(int(id))
+        authors = models.get_allauthors(book)
+        allauthors = models.getauthors_not_associated(int(id))
+    except Exception as e:
+        print("Error Reading from database",e)
         return HttpResponse("Internal Error")
     context = {
         'id': book.id,
@@ -89,12 +85,12 @@ def bookinfo(request, id):
 def addauthor(request):
     bookid = request.POST['bookid']
     authorid = request.POST['select']
-    models.Book.linkauthor(models.Book, bookid, authorid)
+    models.linkauthor(bookid, authorid)
     return redirect("/")
 
 
 def addbook(request):
     authorid = request.POST['authorid']
     bookid = request.POST['select']
-    models.Authors.linkbook(models.Authors, bookid, authorid)
+    models.linkbook(bookid, authorid)
     return redirect("/authors")
