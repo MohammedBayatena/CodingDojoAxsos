@@ -18,3 +18,5 @@ class Player(models.Model):
 	last_name = models.CharField(max_length=15)
 	curr_team = models.ForeignKey(Team, related_name="curr_players", on_delete = models.CASCADE)
 	all_teams = models.ManyToManyField(Team, related_name="all_players")
+
+#TODO link with HTML and add functions
