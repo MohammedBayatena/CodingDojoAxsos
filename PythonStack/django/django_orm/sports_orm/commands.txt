@@ -1,0 +1,33 @@
+In [0]: from leagues.models import *
+In [0]: from django.db.models import Q
+
+
+In [1]: baseballlist = League.objects.filter(sport = 'Baseball')
+In [2]: womenteams = League.objects.filter(name__icontains = 'women')
+In [3]: hockyleagues = League.objects.filter(sport__icontains = 'hockey')
+In [4]: notfotballleagues = League.objects.exclude(sport__icontains = 'football')
+In [5]: conferences = League.objects.filter(name__icontains = 'conference')
+In [6]: atlantic  = League.objects.filter(name__icontains = 'atlantic')
+In [7]: dallas = Team.objects.filter(location = 'Dallas')
+In [8]: raptors =Team.objects.filter(team_name__contains = 'Raptors')
+In [9]: city = Team.objects.filter(location__contains = 'City')
+In [10]: startwithT = Team.objects.filter(team_name__startswith = 'T')
+In [11]: orderlocation = Team.objects.order_by('location')
+In [12]: orderreverse =Team.objects.order_by('-team_name')
+In [13]: cooper =Player.objects.filter(last_name = 'Cooper')
+In [14]: joshua = Player.objects.filter(first_name = 'Joshua')
+In [15]: cooperbutnotjosh= Player.objects.filter(last_name = 'Cooper').exclude(first_name = 'Joshua')
+In [16]: alexanderorwyatt = Player.objects.filter(Q(first_name = 'Alexander')|Q(first_name='Wyatt'))
+
+//Second
+
+In [5]: atlanticteams = League.objects.filter(name = 'Atlantic Soccer Conference').first().teams
+In [9]: bostonplayers  = Team.objects.filter( Q(team_name = 'Boston') and Q(team_name =  'Penguins') ).first().curr_players
+In [18]: for team in League.objects.filter(name = 'International Collegiate Baseball Conference' ).first().teams.all():
+    ...:     for player in team.curr_players.all():
+    ...:         player.__dict__
+
+In [19]: for team in League.objects.filter(name = 'International Collegiate Baseball Conference' ).first().teams.all():
+    ...:     for player in team.curr_players.all():
+    ...:         player.__str__
+
