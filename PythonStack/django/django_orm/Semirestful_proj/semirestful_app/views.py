@@ -1,6 +1,8 @@
+from django.contrib import messages
 from django.shortcuts import redirect, render
 
 from . import models
+from .models import Show
 
 
 def index(request):
@@ -13,11 +15,20 @@ def newshow(request):
 
 def addnewshow(request):
     if request.method == 'POST':
-        title = request.POST['title']
-        network = request.POST['network']
-        releasedate = request.POST['releasedate']
-        description = request.POST['description']
-        models.create_show(title, releasedate, network,description)
+
+        errors = Show.objects.basic_validator(request.POST)
+        if len(errors) > 0:
+            # if the errors dictionary contains anything, loop through each key-value pair and make a flash message
+            for key, value in errors.items():
+                messages.error(request, value)
+            # redirect the user back to the form to fix the errors
+            return redirect('/show/new')
+        else:
+            title = request.POST['title']
+            network = request.POST['network']
+            releasedate = request.POST['releasedate']
+            description = request.POST['description']
+            models.create_show(title, releasedate, network, description)
 
     return redirect('/show/new')
 
@@ -47,11 +58,20 @@ def viewedit(request, id):
 
 def editshow(request, id):
     if request.method == 'POST':
-        title = request.POST['title']
-        network = request.POST['network']
-        releasedate = request.POST['releasedate']
-        description = request.POST['description']
-        models.updatebyid(id, title, releasedate, network ,description)
+        errors = Show.objects.basic_validator(request.POST)
+        if len(errors) > 0:
+            # if the errors dictionary contains anything, loop through each key-value pair and make a flash message
+            for key, value in errors.items():
+                messages.error(request, value)
+            # redirect the user back to the form to fix the errors
+            return redirect('/shows/'+str(id)+'/edit')
+        else:
+            title = request.POST['title']
+            network = request.POST['network']
+            releasedate = request.POST['releasedate']
+            description = request.POST['description']
+            models.updatebyid(id, title, releasedate, network, description)
+
     return redirect('/shows')
 
 

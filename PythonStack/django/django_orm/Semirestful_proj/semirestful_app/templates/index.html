@@ -29,7 +29,7 @@
         }
 
         textarea {
-            resize : none;
+            resize: none;
         }
 
         .btn {
@@ -61,17 +61,24 @@
                 {% csrf_token %}
                 <input type="text" required placeholder="Title" name="title" id="title"/>
                 <div class="split">
-                    <input  required
-                            type="text"
-                            name="network"
-                            id="network"
-                            placeholder="Network"
+                    <input required
+                           type="text"
+                           name="network"
+                           id="network"
+                           placeholder="Network"
                     />
                     <input required type="date" name="releasedate" id="releasedate"/>
                 </div>
                 <textarea required name="description" id="" cols="30" rows="10" placeholder="Descriptipon"></textarea>
                 <input class="btn mt-25" type="submit" value="Create">
             </form>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <a href="/">Go back</a>
 
