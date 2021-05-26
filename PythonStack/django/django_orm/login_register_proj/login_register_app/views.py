@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 
 from . import models
+import bcrypt
 
 
 # Create your views here.
@@ -15,8 +16,8 @@ def login(request):
     if request.method == 'POST':
         email = request.POST['emaillogin']
         password = request.POST['passwordlogin']
-        user = models.usercheckexist(email, password)
-        if user is not None:
+        user = models.usercheckexist(email)
+        if user is not None and bcrypt.checkpw(password.encode(),user.password.encode()):
             request.session['id'] = user.id
             request.session['first_name'] = user.first_name
             request.session['last_name'] = user.last_name
@@ -33,7 +34,8 @@ def register(request):
         passwordc = request.POST['confirmpassword']
 
         if password == passwordc:
-            user = models.create_user(firstname, lastanme, email, password)
+            hashed_password = bcrypt.hashpw(password.encode(),bcrypt.gensalt()).decode()
+            user = models.create_user(firstname, lastanme, email, hashed_password)
             request.session['id'] = user.id
             request.session['first_name'] = user.first_name
             request.session['last_name'] = user.last_name

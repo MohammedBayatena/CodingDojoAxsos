@@ -1,5 +1,5 @@
 from django.db import models
-
+import bcrypt
 
 # Create your models here.
 
@@ -25,8 +25,8 @@ def create_user(firstname, lastname, email, password):
     return User.objects.create(first_name=firstname, last_name=lastname, email=email, password=password)
 
 
-def usercheckexist(email, password):
-    users = User.objects.filter(email=email, password=password)
+def usercheckexist(email):
+    users = User.objects.filter(email=email)
     if len(users) > 0:
         return users[0]
     else:
