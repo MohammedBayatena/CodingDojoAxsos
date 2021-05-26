@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+
+    <style>
+        td,
+        th,
+        tr,
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+
+        th {
+            background-color: grey;
+        }
+
+        tr:nth-child(even) {
+            background-color: lightblue;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            padding:2px;
+        }
+        .center{
+            text-align: center;
+        }
+
+        .mt-25 {
+            margin-top: 25px;
+        }
+
+        .borderright{
+            border-right: 1px solid black;
+            padding: 2px;
+            line-height: 1px;
+        }
+
+        .btn{
+            border: 1px solid black;
+            border-radius: 5px;
+            width: fit-content;
+            padding: 5px;
+            background-color: #689bff;
+            text-decoration: none;
+            color: white;
+            font-weight: bolder;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <div>
+        <h1 class="center">All Shows</h1>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Network</th>
+                <th>Release Date</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for show in shows %}
+            <tr>
+                <td>{{show.id}}</td>
+                <td>{{show.title}}</td>
+                <td>{{show.Network}}</td>
+                <td>{{show.Release_date}}</td>
+                <td>
+                    <a class = "borderright" href="shows/{{show.id}}">show </a>
+                    <a class = "borderright" href="shows/{{show.id}}/edit">edit </a>
+                    <a href="shows/{{show.id}}/delete">delete </a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="mt-25" >
+            <a class="btn" href="/show/new">Add a New Show</a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

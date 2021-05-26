@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+        .container {
+            padding: 25px;
+            width: 65%;
+        }
+
+        .head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .breakword {
+            word-break: break-word;
+            width: 400px;
+        }
+
+        .padding {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="head">
+        <h1>TV Show {{show_info.id}}</h1>
+        <a href="/">Go back</a>
+    </div>
+
+    <div>
+        <p>Title: {{show_info.title}} </p>
+        <p>Network: {{show_info.Network}} </p>
+        <p>Release Date: {{show_info.Release_date}}</p>
+        <p class="breakword">Description: {{show_info.description}}</p>
+        <p>Last Updated: {{show_info.updated_at}}</p>
+
+        <a class="padding" href="/shows/{{show_info.id}}/edit">Edit</a>|
+        <a class="padding" href="/shows/{{show_info.id}}/delete">Delete</a>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>
+
+</div>
+

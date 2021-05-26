@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+
+    <style>
+
+        .head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-around;
+            align-content: center;
+        }
+
+        .center {
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            justify-content: flex-end;
+            align-items: stretch;
+        }
+
+        input {
+            margin: 5px;
+            padding: 5px
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .btn {
+            align-self: flex-start;
+            border: 1px solid black;
+            border-radius: 5px;
+            width: fit-content;
+            padding: 5px;
+            background-color: #689bff;
+            text-decoration: none;
+            color: white;
+            font-weight: bolder;
+        }
+
+        .mt-25 {
+            margin-top: 25px;
+        }
+    </style>
+
+
+</head>
+<body>
+<div class="container">
+
+    <div class="head">
+        <div>
+            <h1>Add a New Show</h1>
+            <form class="center" action="/new" method="post">
+                {% csrf_token %}
+                <input type="text" required placeholder="Title" name="title" id="title"/>
+                <div class="split">
+                    <input required
+                           type="text"
+                           name="network"
+                           id="network"
+                           placeholder="Network"
+                    />
+                    <input required type="date" name="releasedate" id="releasedate"/>
+                </div>
+                <textarea required name="description" id="" cols="30" rows="10" placeholder="Descriptipon"></textarea>
+                <input class="btn mt-25" type="submit" value="Create">
+            </form>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <a href="/">Go back</a>
+
+
+    </div>
+
+
+</div>
+</body>
+</html>
