@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts Wall</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/stylewall.css' %}">
+</head>
+<body>
+
+
+<header class="bg-dark">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 p-3">
+            <li><a href="/" class="nav-link px-2 link-secondary">CodingDojo Wall</a></li>
+        </ul>
+        <p class="px-3">
+            Welcome , {{ request.session.first_name }} {{ request.session.last_name }}
+        </p>
+
+        <div class="dropdown text-end">
+            <a href="/" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1"
+               data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://github.com/mdo.png" alt="mdo" width="50" height="50" class="rounded-circle">
+            </a>
+            <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                <li><a class="dropdown-item" href="/logout">Sign out</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+
+<div class="container">
+
+    <div class="posts">
+
+        <form class="d-flex flex-column" action="/message/{{ request.session.id }}/new" method="post">
+            {% csrf_token %}
+            <div class="form-group m-3">
+                <label class="md-3" for="textareapost">Post a message</label>
+                <textarea style="resize: none;" class="form-control" id="textareapost" name="textareapost"
+                          rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary mb-3 align-self-end">Post a message</button>
+        </form>
+
+        {% for message in messages %}
+
+            <div class="post mt-4 card">
+                <div class="card-body">
+                    <h6 style="font-weight: bold;">{{ message.user_id.first_name }} {{ message.user_id.last_name }}
+                        - {{ message.created_at }}</h6>
+                    <p style="padding-left: 10px;">{{ message.message }}</p>
+                </div>
+            </div>
+
+            <div class="card m-3">
+                <div class="card-body">
+                    {% if comments %}
+                        {% for comment in comments %}
+                            {% if comment.message_id == message.id %}
+                                {% for u in users %}
+                                    {% if u.id == comment.user_id %}
+                                        {% with name=u.first_name %}{% with lastName=u.last_name %}
+                                            <p style="padding-left: 35px; font-weight: bold; font-size: small"> {{ name }} {{ lastName }}
+                                                - {{ comment.created_at }}</p>
+                                            <p style="padding-left: 35px; font-family: cursive">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                     fill="currentColor" class="bi bi-arrow-return-right"
+                                                     viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                          d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z"/>
+                                                </svg>
+                                                {{ comment.comment }} </p>
+                                        {% endwith %}
+                                        {% endwith %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                    <form class="d-flex flex-column" action="/comment/{{ request.session.id }}/new" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" value="{{ message.id }}" name="postid">
+                        <div class="form-group m-3">
+                            <label class="md-3" for="textareacomment">Post a Comment</label>
+                            <textarea style="resize: none;" class="form-control" id="textareacomment"
+                                      name="textareacomment"
+                                      rows="1"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-warning mb-3 align-self-end">Post a comment
+                        </button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+</body>
+</html>
