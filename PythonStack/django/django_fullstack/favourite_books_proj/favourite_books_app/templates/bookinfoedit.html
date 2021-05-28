@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Edit</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container d-flex  justify-content-between align-items-baseline border-bottom">
+    <h1 class="text-center">Welcome</h1>
+    <h2 class="text-center">{{ request.session.first_name }} {{ request.session.last_name }}</h2>
+    <div class="mb-2">
+        <a href="/" class="btn btn-primary text-center self-center ">Home</a>
+        <a href="/logout" class="btn btn-primary text-center self-center ">Logout</a>
+    </div>
+</div>
+
+
+<div class="d-flex align-items-baseline justify-content-evenly mt-3">
+
+
+    <div>
+        <form action="/updatebook/{{ book.id }}" method="post">
+            {% csrf_token %}
+            <div class="row mb-3">
+                <label for="title" class="col-sm-4 col-form-label text-nowrap">Title:</label>
+                <div class="col-sm-8">
+                    <input type="text" value="{{ book.title }}" class="form-control" id="title" name="title">
+                </div>
+            </div>
+            <p>Added by: {{ book.uploaded_by_id.first_name }} {{ book.uploaded_by_id.last_name }}</p>
+            <p>Added on: {{ book.created_at }} </p>
+
+            <div class="mb-3 row">
+                <label for="desc" class="col-sm-4 col-form-label text-nowrap">Description:</label>
+                <div class="col-sm-8">
+                    <textarea class="form-control" name="desc" id="desc"
+                              style="height: 100px; resize: none;">{{ book.desc }}</textarea>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <span class="col-sm-4"></span>
+                <div class="col-sm-8">
+                    <input type="submit" value="Update" class="btn btn-primary">
+                    <a href="/deletebook/{{ book.id }}" class="btn btn-danger">Delete</a></div>
+            </div>
+
+        </form>
+    </div>
+
+    <div>
+        <h4>Users who like this book</h4>
+        <ul>
+            {% for user in book.users_who_like.all %}
+                <li>{{ user.first_name }} {{ user.last_name }}
+                    {% if user.id == request.session.id %}
+                        <a href="/removefav/{{ book.id }}">Remove from favourites</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

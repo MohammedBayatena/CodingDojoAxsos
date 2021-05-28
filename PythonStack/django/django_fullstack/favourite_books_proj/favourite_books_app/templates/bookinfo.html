@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container d-flex  justify-content-between align-items-baseline border-bottom">
+    <h1 class="text-center">Welcome</h1>
+    <h2 class="text-center">{{ request.session.first_name }} {{ request.session.last_name }}</h2>
+    <div class="mb-2">
+        <a href="/" class="btn btn-primary text-center self-center ">Home</a>
+        <a href="/logout" class="btn btn-primary text-center self-center ">Logout</a>
+    </div>
+</div>
+
+
+<div class="d-flex align-items-baseline justify-content-evenly mt-3">
+
+    <div>
+        <h2>{{ book.title }}</h2>
+        <p>Added by: {{ book.uploaded_by_id.first_name }} {{ book.uploaded_by_id.last_name }}</p>
+        <p>Added on: {{ book.created_at }} </p>
+        <p>Last Updated: {{ book.updated_at }}</p>
+        <p style="width: 300px; word-break: break-word;">Description: {{ book.desc }} </p>
+    </div>
+
+    <div>
+        <h4>Users who like this book</h4>
+        <ul>
+
+            {% for user in book.users_who_like.all %}
+                <li>{{ user.first_name }} {{ user.last_name }}</li>
+            {% endfor %}
+        </ul>
+        {% if fav %}
+            <a href="/removefav/{{ book.id }}">Remove from favourites</a>
+        {% else %}
+            <a href="/addfav/{{ book.id }}">Add to favourites</a>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>
