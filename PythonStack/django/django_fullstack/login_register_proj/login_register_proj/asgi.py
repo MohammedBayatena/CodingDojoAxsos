@@ -1,5 +1,5 @@
 """
-ASGI config for wall_assignment_proj project.
+ASGI config for login_register_proj project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'wall_assignment_proj.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'login_register_proj.settings')
 
 application = get_asgi_application()
