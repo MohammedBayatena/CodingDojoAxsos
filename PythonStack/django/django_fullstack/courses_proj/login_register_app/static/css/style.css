@@ -1,0 +1,14 @@
+body {
+
+    background-image: url("../img/bk1.jpg");
+    color: #ffffff;
+    font-family: cursive;
+    font-weight: bolder;
+}
+
+.blur {
+    box-shadow: 0 0 10px .1px;
+    background-color: rgba(238, 238, 238, .15);
+    border-radius: 6px;
+    overflow: hidden;
+}
