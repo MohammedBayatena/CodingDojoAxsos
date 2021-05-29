@@ -48,3 +48,6 @@ def remove_course(id):
 def get_all_courses():
     courses = Course.objects.all()
     return courses
+
+#TODO Description as a separate class as one to many
+#TODO Add comments page for each course

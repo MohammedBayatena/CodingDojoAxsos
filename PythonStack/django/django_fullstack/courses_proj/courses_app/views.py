@@ -53,3 +53,6 @@ def viewremove(request, courseid):
 def removecourse(request, courseid):
     models.remove_course(courseid)
     return redirect("/")
+
+
+
