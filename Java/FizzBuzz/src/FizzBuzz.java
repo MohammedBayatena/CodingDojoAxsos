@@ -6,6 +6,10 @@ public class FizzBuzz {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please Enter a Number: ");
         number = scanner.nextInt();
+        fizzbuzz(number);
+    }
+
+    public static void fizzbuzz(int number) {
         if (number % 5 == 0 && number % 3 == 0) {
             System.out.println("FizzBuzz");
         } else if (number % 5 == 0) {
@@ -16,4 +20,6 @@ public class FizzBuzz {
             System.out.println(number);
         }
     }
+
+
 }
