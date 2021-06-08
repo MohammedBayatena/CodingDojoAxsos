@@ -1,4 +1,4 @@
 /my_environments
 .idea
-.iml
+*.iml
 /out
