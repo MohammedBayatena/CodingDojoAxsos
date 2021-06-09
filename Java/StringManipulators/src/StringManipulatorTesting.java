@@ -18,9 +18,7 @@ public class StringManipulatorTesting {
         Integer bb = manipulator.getIndexOrNull(word, notSubString);
         System.out.println(aa); // 2
         System.out.println(bb); // null
-
         String myword = manipulator.concatSubstring("Hello", 1, 2, "world");
         System.out.println(myword); // eworld
-
     }
 }
