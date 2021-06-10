@@ -71,8 +71,8 @@ public class Puzzling {
         Collections.shuffle(alphabet);
         System.out.println("First Element is : " + alphabet.get(0));
         System.out.println("Last Element is : " + alphabet.get(alphabet.size() - 1));
-        switch (alphabet.get(0)) {
-            case 'a', 'e', 'i', 'o', 'u' -> System.out.println("First Element is a vowel");
+        if (alphabet.get(0) == 'a' || alphabet.get(0) == 'e' || alphabet.get(0) == 'i' || alphabet.get(0) == 'o' || alphabet.get(0) == 'u') {
+            System.out.println("First Element is a vowel");
         }
     }
 
