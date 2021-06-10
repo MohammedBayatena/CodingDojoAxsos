@@ -1,3 +1,5 @@
+package OOP.ProjectClass;
+
 public class Project {
 
     protected String name;
