@@ -11,6 +11,13 @@ public class Human {
         this.health = 100;
     }
 
+    public Human(int strength, int intelligence, int stealth, int health) {
+        this.strength = strength;
+        this.intelligence = intelligence;
+        this.stealth = stealth;
+        this.health = health;
+    }
+
     public int getStrength() {
         return strength;
     }
@@ -51,6 +58,18 @@ public class Human {
 
     public void displayHealth() {
         System.out.println("Health is at: " + this.health + "/" + 100);
+    }
+
+    public void reduceHealth(int amount) {
+        this.health -= amount;
+    }
+
+    public void increaseHealth(int amount) {
+        this.health += amount;
+    }
+
+    public void die() {
+        this.setHealth(0);
     }
 
 
