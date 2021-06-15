@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<h1> Hello <c:out value="${name}"/>!</h1>
+<h1> Hello <c:out value="${name} ${lastname}"/>!</h1>
 <h4>Welcome to SpringBoot!</h4>
 
 </body>

@@ -8,13 +8,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class HumanController {
     @RequestMapping("/")
-    public String drawmain(@RequestParam(value = "name", required = false) String name, Model model) {
+    public String drawmain(@RequestParam(value = "name", required = false) String name,
+                           @RequestParam(value = "lastname", required = false) String lastname,
+                           Model model) {
         if (name == null) {
-            name = "Unknown";
+            name = "Human";
         } else if (name.equals("")) {
-            name = "EmptyField";
+            name = "Human";
+        }
+        if (lastname== null ){
+            lastname="";
+        }else if (lastname.equals("")){
+            lastname="";
         }
         model.addAttribute("name", name);
+        model.addAttribute("lastname", lastname);
         return "home.jsp";
     }
 
