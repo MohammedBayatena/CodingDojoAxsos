@@ -1,0 +1,42 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    font-family: cursive;
+
+}
+
+.container {
+    margin-top: 10%;
+    width: fit-content;
+    padding: 40px;
+    background: radial-gradient(
+            circle at 50% 50%,
+            rgba(111, 109, 130, 0.39) 61%,
+            rgba(111, 109, 130, 0.65) 80%);
+}
+
+body {
+    background-image: url('../img/bk2.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+label, legend {
+    color: #FFFFF9 !important;
+}
+
+.checkbox-teal [type="checkbox"]:checked + label:before {
+    border-color: transparent #009688 #009688 transparent;
+}
+
+.container p {
+    color: #FFFFF9 !important;
+}
+
+.form-control-plaintext {
+    color: #FFFFF9 !important;
+}
+
+
+
