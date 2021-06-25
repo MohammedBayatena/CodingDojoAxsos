@@ -34,6 +34,14 @@ public class DojoService {
         } else {
             return null;
         }
-
     }
+
+//    public Long nativequery(Long id) {
+//        return dojoRepo.nativequery(id);
+//    }
+
+//    public Long jpqlquery(Long id) {
+//        return dojoRepo.jpqlquery(id);
+//    }
+
 }
