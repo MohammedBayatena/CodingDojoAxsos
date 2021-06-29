@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import com.example.authentication.validators.UserValidator;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -17,9 +19,11 @@ import javax.validation.Valid;
 public class UserController {
 
     private final UserService userService;
+    private final UserValidator userValidator;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, UserValidator userValidator) {
         this.userService = userService;
+        this.userValidator = userValidator;
     }
 
     @RequestMapping("/")
@@ -31,7 +35,7 @@ public class UserController {
     public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult result, HttpSession session) {
         // if result has errors, return the registration page (don't worry about validations just now)
         // else, save the user in the database, save the user id in session, and redirect them to the /home route
-
+        userValidator.validate(user, result); // Validator Here -------------------------
         if (result.hasErrors()) {
             return "index.jsp";
         } else {
@@ -42,7 +46,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String loginUser(@RequestParam("email") String email, @RequestParam("password") String password, Model model, HttpSession session) {
+    public String loginUser(@RequestParam("email") String email, @RequestParam("password") String password, Model model, HttpSession session, RedirectAttributes redirectAttributes) {
         // if the user is authenticated, save their user id in session
         // else, add error messages and return the login page
 
@@ -57,7 +61,7 @@ public class UserController {
             }
             return "homePage.jsp";
         } else {
-            System.out.println("wrong Combo");
+            redirectAttributes.addFlashAttribute("loginerrors", "Wrong Password or Email !");
             return "redirect:/";
         }
     }

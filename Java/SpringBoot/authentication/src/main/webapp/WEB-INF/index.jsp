@@ -90,9 +90,11 @@
                     <button type="submit" class="btn btn-primary btn-dark">Login</button>
                 </div>
             </div>
-
         </form>
-
+        
+        <c:if test="${loginerrors != null}">
+            <p class="alert alert-warning d-flex align-items-center">${loginerrors}</p>
+        </c:if>
         <div>
             <form:errors path="user.*" cssClass="alert alert-warning d-flex align-items-center"/>
         </div>

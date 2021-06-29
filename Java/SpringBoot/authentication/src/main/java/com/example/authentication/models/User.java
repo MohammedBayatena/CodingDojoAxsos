@@ -19,9 +19,10 @@ public class User {
     @Size(min = 3, max = 20, message = "✵Last Name must be between 3 and 20 characters")
     private String lastName;
     @Column(unique = true)
-    @Email
+    @Email(message = "Email must be valid!")
     @NotNull
     private String email;
+    @Size(min = 8, message = "Password should be at least 8 characters in length")
     private String password;
     @Transient
     private String passwordConfirmation;
