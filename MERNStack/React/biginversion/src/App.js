@@ -1,5 +1,5 @@
 import './App.css';
-import PersonCard from "./Components/PersonCard";
+import PersonCard from "./components/PersonCard";
 
 function App() {
     return (
@@ -13,7 +13,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
