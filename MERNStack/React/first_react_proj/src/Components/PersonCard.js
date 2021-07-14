@@ -11,5 +11,4 @@ class PersonCard extends Component {
         );
     }
 }
-
 export default PersonCard
