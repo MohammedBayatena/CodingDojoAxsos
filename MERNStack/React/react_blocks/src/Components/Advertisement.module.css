@@ -1,0 +1,8 @@
+.adv {
+    background-color: #b4a7d6;
+    height: 60px;
+    margin: 0 10px 10px 10px;
+    display: block;
+    flex-basis: 100%;
+    border: 2px solid black;
+}

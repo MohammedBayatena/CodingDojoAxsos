@@ -1,0 +1,9 @@
+.navbar{
+    display: inline-block;
+    width: 150px;
+    height: 274px;
+    background-color: #6fa8dc;
+    flex: 1;
+    border: 2px solid black;
+    margin: 2px;
+}

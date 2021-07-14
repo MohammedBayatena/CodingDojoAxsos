@@ -1,0 +1,13 @@
+.body {
+    display: inline-flex;
+    background-color: #e06666;
+    height: fit-content;
+    vertical-align: top;
+    margin-left: 10px;
+    width: 525px;
+    border: 2px solid black;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+
+}

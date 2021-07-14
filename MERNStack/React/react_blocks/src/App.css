@@ -1,0 +1,8 @@
+.app {
+    width: 700px;
+    height: fit-content;
+    background-color: #dddddd;
+    padding: 10px;
+    border: 2px solid black;
+    margin: 12px;
+}
