@@ -1,0 +1,11 @@
+/*Contains CSS for the main app*/
+
+.App {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
