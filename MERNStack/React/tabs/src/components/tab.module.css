@@ -1,0 +1,18 @@
+.tab {
+    background-color: white;
+    border: grey 1px solid;
+    padding: 5px;
+    margin: 5px;
+    width: 150px;
+    height: 50px;
+}
+
+.tab:hover {
+    background-color: wheat;
+}
+
+.tab.active {
+    background: black;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+    color: white;
+}

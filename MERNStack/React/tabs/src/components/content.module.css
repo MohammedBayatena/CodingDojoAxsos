@@ -1,0 +1,7 @@
+.content {
+    height: 200px;
+    word-break: break-word;
+    width: 700px;
+    border: black 1px solid;
+    transition: width 2s;
+}
