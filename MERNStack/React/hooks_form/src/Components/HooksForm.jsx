@@ -19,6 +19,8 @@ const HooksForm = (props) => {
                            id="firstname"/>
                 </div>
             </div>
+            {state["firstname"].length < 2 ?
+                <p style={{color: 'red'}}>{"First Name must be at least 2 characters long."}</p> : ''}
             <div className="row mb-3 btn-secondary p-2 rounded">
                 <label htmlFor="lastname" className="col-sm-5 col-form-label">Last Name</label>
                 <div className="col-sm-7">
@@ -26,6 +28,8 @@ const HooksForm = (props) => {
                            id="lastname"/>
                 </div>
             </div>
+            {state["lastname"].length < 2 ?
+                <p style={{color: 'red'}}>{"Last Name must be at least 2 characters long."}</p> : ''}
             <div className="row mb-3 btn-secondary p-2 rounded">
                 <label htmlFor="email" className="col-sm-5 col-form-label">Email</label>
                 <div className="col-sm-7">
@@ -33,6 +37,8 @@ const HooksForm = (props) => {
                            id="email"/>
                 </div>
             </div>
+            {state["email"].length < 5 ?
+                <p style={{color: 'red'}}>{"Email must be at least 5 characters long."}</p> : ''}
             <div className="row mb-3 btn-secondary p-2 rounded">
                 <label htmlFor="password" className="col-sm-5 col-form-label">Password</label>
                 <div className="col-sm-7">
@@ -40,6 +46,8 @@ const HooksForm = (props) => {
                            id="password"/>
                 </div>
             </div>
+            {state["password"].length < 8 ?
+                <p style={{color: 'red'}}>{"Password must be at least 8 characters long."}</p> : ''}
             <div className="row mb-3 btn-secondary p-2 rounded">
                 <label htmlFor="passwordconfirm" className="col-sm-5 col-form-label">Confirm Password</label>
                 <div className="col-sm-7">
@@ -47,6 +55,8 @@ const HooksForm = (props) => {
                            className="form-control" id="passwordconfirm"/>
                 </div>
             </div>
+            {!(state['passwordconfirm'] === state['password']) ?
+                <p style={{color: 'red'}}>{"Password and Password Confirmation must match"}</p> : ''}
         </form>
     )
 }
