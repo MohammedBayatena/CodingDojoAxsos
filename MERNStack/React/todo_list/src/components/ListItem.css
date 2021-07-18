@@ -1,0 +1,10 @@
+.false {
+    font-family: cursive;
+}
+
+.true {
+    font-family: cursive;
+    text-decoration: line-through;
+    font-weight: bolder;
+    font-style: italic;
+}
