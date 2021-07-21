@@ -4,7 +4,6 @@ const TodoForm = (props) => {
 
     const [task, setTask] = useState("");
 
-
     function addTask(e) {
         e.preventDefault();
         props.taskcreator({task: task, finished: false});
