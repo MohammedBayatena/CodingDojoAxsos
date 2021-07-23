@@ -1,0 +1,44 @@
+1)use my_first_db
+
+2)db.createCollection("Students")
+
+3)db.Students.insert({name: "Mohammed Bayatena", home_state: "Birzeit", lucky_number: 21, birthday: {month: 11, day: 21, year: 1998}})
+4)db.Students.insert({name: "Hatsune Miku", home_state: "Tokyo", lucky_number: 39, birthday: {month: 08, day: 31, year: 2007}})
+5)db.Students.insert({name: "Megurine Luka", home_state: "Tokyo", lucky_number: 8, birthday: {month: 01, day: 30, year: 2009}})
+6)db.Students.insert({name: "Kagamine Len", home_state: "Tokyo", lucky_number: 69, birthday: {month: 12, day: 27, year: 2007}})
+7)db.Students.insert({name: "Kagamine Ren", home_state: "Tokyo", lucky_number: 69, birthday: {month: 12, day: 27, year: 2007}})
+
+
+8)db.Students.find({}).pretty()
+
+9)db.Students.find( { $or: [  {home_state : "San Jose Dojo"},{home_state : "Washington"} ] } ).pretty()
+10)db.Students.find({lucky_number: {$gt : 3}})
+11)db.Students.find({lucky_number: {$lte : 10}})
+
+12)db.Students.find({  $and: [ {lucky_number: {$gte : 1}},{lucky_number: {$lte : 10}} ] })
+
+13)db.Students.updateMany({}, {$set: {interests: ["coding", "brunch", "MongoDB"]}})
+
+14)db.Students.update({name: "Mohammed Bayatena"} , {$push: {interests: 'Vocaloids'}})
+14)db.Students.update({name: "Hatsune Miku"} , {$push: {interests: 'Singing'}})
+14)db.Students.update({name: "Kagamine Len"} , {$push: {interests: 'Kagamine Ren'}})
+14)db.Students.update({name: "Kagamine Ren"} , {$push: {interests: 'Kagamine Len'}})
+
+15)db.Students.update({name: "Megurine Luka"} , {$push: {interests: 'taxes'}})
+16)db.Students.update({name: "Megurine Luka"},  {$pull: {interests: 'taxes'}})
+
+17)db.Students.insert({name: "user1", home_state: "California", lucky_number: 69, birthday: {month: 12, day: 27, year: 2007}})
+17)db.Students.insert({name: "user2", home_state: "California", lucky_number: 69, birthday: {month: 12, day: 27, year: 2007}})
+17)db.Students.deleteMany({home_state: "California"})
+
+18)db.Students.deleteOne({name: "Mohammed Bayatena"})
+
+19)db.Students.deleteOne({lucky_number: {$gte : 5}})
+
+20)db.Students.updateMany({} , { $set : {number_of_belts : 0} } )
+
+21)db.Students.updateMany( {home_state : "Tokyo"} , {$inc:{number_of_belts: 1}})
+
+22)db.Students.updateMany( {} , {$unset:{lucky_number: ""}})
+
+23)db.Students.updateMany( {} , { $currentDate: {updated_on:  {$type: "date"}}})
