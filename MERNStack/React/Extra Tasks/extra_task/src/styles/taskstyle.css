@@ -1,0 +1,13 @@
+
+.todo{
+background-color: black;
+
+}
+
+.done{
+    background-color: green;
+}
+
+.hidden{
+    display: none;
+}
