@@ -51,7 +51,7 @@ This Repo is made for all the projects, work, and documentation of all the effor
 * GOOGLE MAPS
 * MYSQL
 * AWS/EC2
-* MTSQL
+* MYSQL
 * POWERSHELL
 * STS / Eclipse / Intellij
 * Spring Security
