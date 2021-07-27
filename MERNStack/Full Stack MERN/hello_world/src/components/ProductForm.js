@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import axios from 'axios';
+import MyContext from "../contexts/RefreshContext";
 
 export default () => {
 
@@ -7,6 +8,7 @@ export default () => {
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState(0);
     const [description, setDescription] = useState("");
+    const {setRefresh} = useContext(MyContext);
 
     const onSubmitHandler = e => {
         e.preventDefault();
@@ -15,7 +17,7 @@ export default () => {
             price,
             description
         })
-            .then(res => console.log(res))
+            .then(setRefresh(true))
             .catch(err => console.log(err))
     }
 
