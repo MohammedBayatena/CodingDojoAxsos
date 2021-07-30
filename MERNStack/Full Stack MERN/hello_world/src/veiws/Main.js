@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Router} from "@reach/router";
 import ProductInfo from "../components/ProductInfo";
 import MainView from "../components/MainView";

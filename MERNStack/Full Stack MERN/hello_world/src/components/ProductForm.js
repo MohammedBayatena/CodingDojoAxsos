@@ -1,24 +1,17 @@
-import React, {useContext, useState} from 'react'
-import axios from 'axios';
-import MyContext from "../contexts/RefreshContext";
+import React, {useState} from 'react'
 
-export default () => {
+export default (props) => {
+
+    const {initialtitle, initialprice, initialdescription, buttontext, onSubmitProp} = props;
 
     //keep track of what is being typed via useState hook
-    const [title, setTitle] = useState("");
-    const [price, setPrice] = useState(0);
-    const [description, setDescription] = useState("");
-    const {setRefresh} = useContext(MyContext);
+    const [title, setTitle] = useState(initialtitle);
+    const [price, setPrice] = useState(initialprice);
+    const [description, setDescription] = useState(initialdescription);
 
     const onSubmitHandler = e => {
         e.preventDefault();
-        axios.post('http://localhost:8000/api/product/new', {
-            title,
-            price,
-            description
-        })
-            .then(setRefresh(true))
-            .catch(err => console.log(err))
+        onSubmitProp({title, price, description})
     }
 
     return (
@@ -28,6 +21,7 @@ export default () => {
                 <div className="col-sm-7">
                     <input placeholder={"Title"} onChange={(e) => setTitle(e.target.value)} type="text"
                            className="form-control"
+                           value={title}
                            id="title"/>
                 </div>
             </div>
@@ -36,7 +30,9 @@ export default () => {
             <div className="row mb-3 btn-secondary p-2 rounded">
                 <label htmlFor="price" className="col-sm-5 col-form-label">Price</label>
                 <div className="col-sm-7">
-                    <input onChange={(e) => setPrice(e.target.value)} type="number" className="form-control"
+                    <input onChange={(e) => setPrice(e.target.value)} type="number"
+                           className="form-control"
+                           value={price}
                            id="price"/>
                 </div>
             </div>
@@ -44,15 +40,16 @@ export default () => {
             <div className="row mb-3 btn-secondary p-2 rounded">
                 <label htmlFor="description" className="col-sm-5 col-form-label">Description</label>
                 <div className="col-sm-7">
-                    <textarea placeholder={"Description"} onChange={(e) => setDescription(e.target.value)} type="text"
+                    <textarea placeholder={"Description"} onChange={(e) => setDescription(e.target.value)}
                               className="form-control"
+                              value={description}
                               id="description"/>
                 </div>
             </div>
             {(description.length < 10 && description !== "") ?
                 <p style={{color: 'red'}}>{"Description must be at least 10 characters long."}</p> : ''}
 
-            <button className={"btn btn-primary"}>Add Product</button>
+            <button className={"btn btn-primary"}>{buttontext}</button>
 
         </form>
     )
