@@ -1,33 +1,19 @@
 import React, {useState} from 'react';
-import {Link, navigate} from "@reach/router";
+import {Link} from "@reach/router";
 import ButtonComponent from "./ButtonComponent";
 
 
-const AuthorForm = (props) => {
+const Form = (props) => {
 
-    const {formSubmit, initialName, message} = props;
+    const {initialName, message, onCancel, onSubmit} = props;
     const [name, setName] = useState(initialName);
-
-    function cancel() {
-        navigate("/api")
-            .then(res => console.log("Back to Home"))
-            .catch(err => console.log(err))
-    }
-
-    const onSubmitHandler = e => {
-        e.preventDefault();
-        formSubmit({name})
-        navigate("/api")
-            .then(res => console.log("went to home"))
-            .catch(err => console.log(err))
-    }
 
     return (
         <div className={"container"}>
             <h1 className={"p-2"}>Favourite Authors</h1>
             <Link className={"p-2"} to={"/api"}>Home</Link>
             <h5 className={"p-2"}>{message}</h5>
-            <form onSubmit={onSubmitHandler}>
+            <form>
                 <div className={"p-5 border"}>
                     <div className={"row d-flex align-items-center"}>
                         <div className={"col-auto"}>
@@ -43,10 +29,10 @@ const AuthorForm = (props) => {
                     </div>
                     <div className={"row offset-sm-1 pt-2"}>
                         <div className={"col-auto"}>
-                            <ButtonComponent buttonText={"Cancel"} successCallBack={cancel}/>
+                            <ButtonComponent buttonText={"Cancel"} successCallBack={onCancel}/>
                         </div>
                         <div className={"col-auto"}>
-                            <input className={"btn btn-primary"} type={"submit"} value={"Submit"}/>
+                            <ButtonComponent buttonText={"Submit"} successCallBack={() => onSubmit({name: name})}/>
                         </div>
                     </div>
                 </div>
@@ -55,4 +41,4 @@ const AuthorForm = (props) => {
     );
 };
 
-export default AuthorForm;
+export default Form;

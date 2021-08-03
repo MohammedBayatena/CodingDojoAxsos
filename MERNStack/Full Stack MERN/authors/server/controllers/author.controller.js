@@ -3,7 +3,7 @@ const {request, response} = require("express");
 
 module.exports.createAuthor = (req, res) => {
     Author.create(req.body)
-        .then(res => console.log(res))
+        .then(author => res.json(author))
         .catch(err => res.json(err))
 }
 
@@ -20,7 +20,7 @@ module.exports.getAllAuthors = (request, response) => {
 }
 
 module.exports.updateAuthor = (request, response) => {
-    Author.updateOne({_id: request.params.id}, request.body, {new: true})
+    Author.findOneAndUpdate({_id: request.params.id}, request.body, {new: true})
         .then(updatedAuthor => response.json(updatedAuthor))
         .catch(err => response.json(err))
 }

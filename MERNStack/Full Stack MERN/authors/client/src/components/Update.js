@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
-import AuthorForm from "./authorForm";
+import Form from "./Form";
 
-const UpdateAuthor = (props) => {
+const Update = (props) => {
 
     const [name, setName] = useState("");
     const [loaded, setLoaded] = useState(false);
-    const {id} = props;
+    const {id, onSubmit, onCancel} = props;
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/author/' + id)
@@ -16,18 +16,23 @@ const UpdateAuthor = (props) => {
             })
     }, [id])
 
-    const updateAuthor = author => {
+    const updateAuthor = (author) => {
         axios.put(`http://localhost:8000/api/author/${id}/edit`, author)
-            .then(res => console.log("{ Status OK }"))
+            .then(updatedAuthor => {
+                onSubmit(updatedAuthor.data)
+            })
             .catch(err => console.log(err))
     }
 
     return (
-        loaded && <AuthorForm
-            formSubmit={updateAuthor}
-            initialName={name}
-            message={"Edit this author: "}/>
+        loaded && <>
+            <Form
+                initialName={name}
+                onCancel={onCancel}
+                onSubmit={updateAuthor}
+                message={"Edit this author: "}/>
+        </>
     );
 };
 
-export default UpdateAuthor;
+export default Update;
