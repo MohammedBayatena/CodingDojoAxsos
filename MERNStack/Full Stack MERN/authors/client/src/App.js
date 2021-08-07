@@ -10,6 +10,7 @@ function App() {
 
     const [authorsList, setAuthorsList] = useState([])
     const [loaded, setLoaded] = useState(false)
+    const [errors, setErrors] = useState([]);
 
 
     useEffect(() => {
@@ -59,7 +60,15 @@ function App() {
                         .catch(err => console.log(err))
                 }
             )
-            .catch(err => console.log(err))
+            .catch(err => {
+                const errorResponse = err.response.data.errors; // Get the errors from err.response.data
+                const errorArr = []; // Define a temp error array to push the messages in
+                for (const key of Object.keys(errorResponse)) { // Loop through all errors and get the messages
+                    errorArr.push(errorResponse[key].message)
+                }
+                // Set Errors
+                setErrors(errorArr);
+            })
     }
 
     return (
@@ -72,10 +81,12 @@ function App() {
                           initialName={""}
                           onCancel={formCancel}
                           onSubmit={addAuthor}
+                          errors={errors}
                           message={"Add a new author: "}/>
                     <Update path={"/api/author/:id/edit"}
                             onCancel={formCancel}
                             onSubmit={editAuthor}
+                            errors={errors}
                             message={"Edit this author: "}
                     />
                 </Router>

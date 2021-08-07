@@ -5,7 +5,7 @@ import ButtonComponent from "./ButtonComponent";
 
 const Form = (props) => {
 
-    const {initialName, message, onCancel, onSubmit} = props;
+    const {initialName, message, onCancel, onSubmit, errors} = props;
     const [name, setName] = useState(initialName);
 
     return (
@@ -37,6 +37,9 @@ const Form = (props) => {
                     </div>
                 </div>
             </form>
+            { // Loop through all errors and get the messages
+                errors.map((err, index) => <p  className={"alert alert-warning p-2 m-2"} key={index}>{err}</p>)
+            }
         </div>
     );
 };
